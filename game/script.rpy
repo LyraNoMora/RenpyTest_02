@@ -7,6 +7,27 @@ define p = Character("Protagonist", color="#32a852")
 define Poppie = Character("Poppie", color="#f0b5d2")
 define g = Character("Girl", color="#f0b5d2")
 
+# Define images
+
+layeredimage Poppie:
+
+    always:
+        "poppie_body"
+
+    group face auto:
+        attribute neutral default:
+            "poppie_neutral"
+        attribute sad:
+            "poppie_sad"
+        attribute smile:
+            "poppie_smile"
+        attribute surprised:
+            "poppie_surprised"
+        attribute cheery:
+            "poppie_cheery"
+        attribute gum:
+            "poppie_gum"
+
 # The game starts here.
 
 label start:
@@ -43,7 +64,7 @@ label start:
 
     "I follow the trail and see the source of the floating chaos:"
 
-    #show Poppie looking away neutral
+    show Poppie looking away neutral
 
     g "..."
 
@@ -63,7 +84,7 @@ label start:
 
     p "Sorry to interrupt, but I was drawn here by the bubbles floating down the road. Why are you doing that?"
 
-    #show Poppie neutral
+    show Poppie neutral
 
     g "Doing what?"
 
@@ -71,7 +92,7 @@ label start:
 
     g "Why wouldn’t I?"
 
-    #show Poppie smile
+    show Poppie smile
 
     g "..."
 
@@ -86,7 +107,7 @@ menu:
 
 label choices1_common:
 
-    #show Poppie neutral
+    show Poppie neutral
 
     Poppie "So my bubbles brought you here to me, hm?"
 
@@ -96,7 +117,7 @@ label choices1_common:
 
     p "I was actually pretty distracted by them. It sort of interrupted my walk home."
 
-    #show Poppie sad
+    show Poppie sad
 
     Poppie "So you don’t like them..."
 
@@ -110,19 +131,19 @@ label choices1_common:
 
     "Well, I guess they do make me feel a little nostalgic."
 
-    #show Poppie smile
+    show Poppie smile
 
     Poppie "I love bubbles!"
 
     p "I guessed as much."
 
-    #show Poppie neutral
+    show Poppie neutral
 
     Poppie "Here, take this."
 
     "She handed me her bubble bottles."
 
-    #show Poppie serious
+    show Poppie serious
 
     p "Why are you giving me this?"
 
@@ -132,7 +153,7 @@ label choices1_common:
 
     "Against my better judgement, I began blowing bubbles."
 
-    #show Poppie smile
+    show Poppie smile
 
     Poppie "Yay!"
 
@@ -149,7 +170,7 @@ label choices1_common:
     scene beach sunset
     with dissolve
 
-    #show Poppie neutral
+    show Poppie neutral
 
     Poppie "Hey, may I ask you something?"
 
@@ -159,17 +180,17 @@ label choices1_common:
 
     p "Didn’t you ask me earlier?"
 
-    #show Poppie serious
+    show Poppie serious
 
     Poppie "Well, answer it again!"
 
     p "Enough of you asking me that, why don’t you answer?"
 
-    #show Poppie surprised
+    show Poppie surprised
 
     Poppie "...!"
 
-    #show Poppie neutral
+    show Poppie neutral
 
     Poppie "..."
 
@@ -177,7 +198,7 @@ label choices1_common:
 
     Poppie "I think..."
 
-    #show Poppie smile
+    show Poppie smile
 
     Poppie "...Bubbles are a lot like people."
 
@@ -201,7 +222,7 @@ label choices1_common:
 
     "There’s definitely more to this girl than spontaneous bubble blowing."
 
-    #show Poppie neutral
+    show Poppie neutral
 
     Poppie "So, are you doing anything tomorrow?"
 
@@ -215,7 +236,7 @@ label choices1_common:
 
     p "Well, I’m not, but-"
 
-    #show Poppie cheery
+    show Poppie cheery
 
     Poppie "Great! Meet me back here, 11am sharp!"
 
@@ -287,13 +308,13 @@ label choices1_common:
 
     "There wasn’t actually a line behind us, but I’d rather not spend the whole day waiting for her to choose."
 
-    #show Poppie sad
+    show Poppie sad
 
     Poppie "Aaaah! I can’t decide!"
 
     p "So you wanna just not drink anything and dehydrate?"
 
-    #show Poppie smile
+    show Poppie smile
 
     Poppie "I know! I’ll go with whatever you get!"
 
@@ -311,7 +332,7 @@ menu:
         jump choices2_c
 
 label choices2_a:
-    #show Poppie cheery
+    show Poppie cheery
     Poppie "Good choice! We’ll get 2 of that!"
     jump choices2_common
 
@@ -326,7 +347,7 @@ label choices2_c:
 label choices2_common:
     #fade to black
     #fade to restaurant
-    #show Poppie default
+    show Poppie default
 
     p "How’s your drink?"
 
@@ -372,7 +393,7 @@ label choices2_common:
 
     "*POP*"
 
-    #show Poppie surprised
+    show Poppie surprised
 
     Poppie "Woah! How did you do that?"
 menu:
@@ -384,17 +405,18 @@ menu:
         jump choices3_common
 
 label choices3_common:
-    #show Poppie smile
+    show Poppie smile
     Poppie "Okay, I’ll try!"
 
-    #show Poppie Trying as hard as possible to blow a bubble
+    # TODO: fix this
+    # show Poppie Trying as hard as possible to blow a bubble
     "Poppie tries to blow as hard as possible."
 
     "Eventually something came out of her mouth."
 
     "..."
 
-    #show Poppie surprised
+    show Poppie surprised
 
     Poppie "...!"
 
@@ -406,7 +428,7 @@ label choices3_common:
 
     p "Maybe that’s enough bubble blowing for today."
 
-    #show beach at sunset
+    show beach at sunset
     
     call screen the_big_question()
 
