@@ -16,7 +16,7 @@ label start:
     # images directory to show it.
 
     # change to black screen
-    scene bg day
+    #scene beach sunset
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -24,10 +24,14 @@ label start:
 
     # These display lines of dialogue.
 
-    "I’m walking home, just taking the cool breeze in."
+    "The same walk home is always accompanied by the cool ocean breeze."
 
-    #scene bg beach
-    #with dissolve
+    scene beach sunset
+    with dissolve
+
+    "Left at the intersection, three blocks down, right at the corner store, and then I’m home."
+
+    "I like it when things stay the same. Routines are predictable, dependable."
 
     "As I continue down the road, something catches my eye."
 
@@ -35,17 +39,21 @@ label start:
 
     p "A bubble?"
 
-    p "Heh, that’s quite nostalgic. I remember playing with bubbles when I was younger."
+    "That’s new. Where are those bubbles coming from?"
 
-    "I look around and see the source of the bubble."
+    "I follow the trail and see the source of the floating chaos:"
 
-    #show Poppie default
+    #show Poppie looking away neutral
 
     g "..."
 
-    "It seems she’s playing with bubble bottles on her own."
+    "It seems she’s playing with a small bubble wand on her own."
 
     "She seems lost in her thoughts."
+
+    p "Hey you!"
+
+    "Why did I say that?!"
 
     g "Hm?"
 
@@ -53,60 +61,97 @@ label start:
 
     "Crap, I gotta say something before this situation turns awkward."
 
-    p "Sorry to intrude, I saw you playing here by yourself."
+    p "Sorry to interrupt, but I was drawn here by the bubbles floating down the road. Why are you doing that?"
+
+    #show Poppie neutral
+
+    g "Doing what?"
+
+    p "Blowing bubbles by yourself?"
+
+    g "Why wouldn’t I?"
 
     #show Poppie smile
 
-    g "Greetings! My name is Poppie."
+    g "..."
+
+    g "My name is Poppie, nice to meet you bubble police!"
 menu:
     "Nice to meet you too!":
         jump choices1_common
-    "Good day!":
+    "Hey, I’m no bubble police!":
         jump choices1_common
-    "Pleased to meet you!":
-        jump choices1_common
-    "Did you know that climate change is going to be the end of the planet as we know it?":
+    "Be careful, I might have to give you a ticket.":
         jump choices1_common
 
 label choices1_common:
 
-    Poppie "So, what do you think about bubbles?"
+    #show Poppie neutral
 
-    p "...?"
+    Poppie "So my bubbles brought you here to me, hm?"
 
-    "Her sudden question caught me off guard."
+    p "...Sort of? I guess, yeah they did."
 
-    p "Yeah. Bubbles are... quite something."
+    Poppie "Do you like them?"
+
+    p "I was actually pretty distracted by them. It sort of interrupted my walk home."
+
+    #show Poppie sad
+
+    Poppie "So you don’t like them..."
+
+    p "No-! I mean yes-! I mean-!"
+
+    p "I do like them, of course."
+
+    p "It’s just that I wasn’t expecting to see them today."
+
+    "What am I saying? I like bubbles now?"
+
+    "Well, I guess they do make me feel a little nostalgic."
+
+    #show Poppie smile
 
     Poppie "I love bubbles!"
 
-    p "I see."
+    p "I guessed as much."
+
+    #show Poppie neutral
 
     Poppie "Here, take this."
 
     "She handed me her bubble bottles."
 
+    #show Poppie serious
+
     p "Why are you giving me this?"
 
-    Poppie "I’m getting tired of blowing bubbles, your turn!"
+    Poppie "I’m getting tired of blowing bubbles, it's your turn!"
 
     p "..."
 
     "Against my better judgement, I began blowing bubbles."
 
+    #show Poppie smile
+
     Poppie "Yay!"
 
-    "She begins dancing around, trying to pop every bubble blown."
+    "She begins dancing around, trying to pop every bubble that floats by her."
 
-    "I’ll be honest, it does feel kinda heart warming."
+    "The evening sun reflects off the soapy bubbles, illuminating them like a sea of glass."
 
-    "Almost resembling when I was a kid and I was still playing with bubbles."
+    "I’ll be honest, it does make me feel a bit happier."
 
-    #fade to black
+    "Watching her jumping around reminds me of myself when I was a kid and still playing with bubbles."
 
-    #fade to beach
+    "Things feel easier when your only care in the world is popping as many bubbles as you can."
 
-    Poppie "May I ask you something?"
+    scene beach sunset
+    with dissolve
+
+    #show Poppie neutral
+
+    Poppie "Hey, may I ask you something?"
 
     p "What’s up?"
 
@@ -114,11 +159,17 @@ label choices1_common:
 
     p "Didn’t you ask me earlier?"
 
+    #show Poppie serious
+
     Poppie "Well, answer it again!"
 
     p "Enough of you asking me that, why don’t you answer?"
 
     #show Poppie surprised
+
+    Poppie "...!"
+
+    #show Poppie neutral
 
     Poppie "..."
 
@@ -126,33 +177,67 @@ label choices1_common:
 
     Poppie "I think..."
 
-    Poppie "...Bubbles are like life."
+    #show Poppie smile
 
-    Poppie "One day, a life is created one day, any time your life can just pop."
+    Poppie "...Bubbles are a lot like people."
+
+    Poppie "Some are small, some are big and round, others wobbly, or sturdy."
+
+    Poppie "All these bubbles float up, dance around in the air, trying not to bump into each other."
+
+    Poppie "Sometimes they do bump into one another, and stick together."
+
+    Poppie "...And like a bubble, it’ll continue to fly high, ever drifting, oblivious to what comes next."
+
+    Poppie "Then, one day, it pops."
+
+    Poppie "With no rhyme or reason. It just pops, and it’s gone in an instant."
 
     p "..."
 
-    "What a strange answer she gave."
+    "What a strange answer."
+
+    "She seems so light and happy, but that response was so bleak."
+
+    "There’s definitely more to this girl than spontaneous bubble blowing."
+
+    #show Poppie neutral
 
     Poppie "So, are you doing anything tomorrow?"
 
-    p "No, why?"
+    p "Huh?!"
 
-    Poppie "Great! Meet me back here, 11am!"
+    Poppie "What? It’s a simple question."
 
+    p "That's quite the topic change."
+
+    Poppie "Just answer."
+
+    p "Well, I’m not, but-"
+
+    #show Poppie cheery
+
+    Poppie "Great! Meet me back here, 11am sharp!"
+
+    #fade Poppie
     "Poppie immediately begins skipping away."
 
-    p "Wait! You forgot your bubble bottle!"
+    "I glance down at my hands and realize I’m still holding her bubble bottle."
 
-    "In the distance, I hear a faint voice yell back at me:"
 
-    Poppie "Keep it!"
+
+    p "Wait! You forgot your bottle!"
+
+    "In the distance, I hear a faint voice yell back at me."
+
+    Poppie "Keep it! You can give it back to me tomorrow!"
 
     "I look down at the bubble bottle then back at her and crack a faint smile."
 
     p "What an odd girl."
 
-    #fade to black
+    scene beach day
+    with fade
 
     "I show up back at the beach at 11am."
 
