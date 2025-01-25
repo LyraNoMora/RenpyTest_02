@@ -322,57 +322,7 @@ label choices3_common:
     p "Maybe that’s enough bubble blowing for today."
 
     #show beach at sunset
-
-    # This ends the game.
-    menu:
-
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
-        "Yes":
-            return
-        "No":
-            return
-        "I'm nervous":
-            return
-        "Bye":
-            return
+    
+    call screen the_big_question()
 
     return

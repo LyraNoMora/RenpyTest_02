@@ -11,9 +11,9 @@ init python:
     import math
     import random
 
-    radius = 200 / 2 # Assume this is the radius
-
     class BouncingBubble:
+        bubble_radius = 200 / 2
+
         wind_angle = 0
         wind_angle_speed = 0
         
@@ -23,15 +23,15 @@ init python:
             self.x = x
             self.y = y
             initial_angle = random.uniform(0, 2 * math.pi)
-            initial_speed = random.uniform(0, 100)
+            initial_speed = random.uniform(70, 100)
             self.dx = math.cos(initial_angle) * initial_speed
             self.dy = math.sin(initial_angle) * initial_speed
 
         def update(self, dt):
-            min_x = radius
-            max_x = 1920 - radius
-            min_y = radius
-            max_y = 1080 - radius
+            min_x = BouncingBubble.bubble_radius
+            max_x = 1920 - BouncingBubble.bubble_radius
+            min_y = BouncingBubble.bubble_radius
+            max_y = 1080 - BouncingBubble.bubble_radius
 
             self.dx += math.cos(BouncingBubble.wind_angle) * BouncingBubble.wind_strength * dt
             self.dy += math.sin(BouncingBubble.wind_angle) * BouncingBubble.wind_strength * dt
@@ -56,6 +56,10 @@ init python:
 
             # Clamp
             cls.wind_angle = cls.wind_angle % (2 * math.pi)
+
+        @classmethod
+        def update_bubble_radius(cls, radius):
+            cls.bubble_radius = radius
 
     def create_bouncing_bubbles(count):
         objects = []
@@ -92,7 +96,8 @@ transform pop_in(index):
 screen choice(items):
     style_prefix "choice"
 
-    text str(BouncingBubble.wind_angle) xpos 0 ypos 0 color "#fff"
+    python:
+        BouncingBubble.update_bubble_radius(200 / 2)
 
     for idx, val in enumerate(items):
         textbutton val.caption xysize (200, 200) action val.action at bounce_update(idx), pop_in(idx)
