@@ -324,5 +324,55 @@ label choices3_common:
     #show beach at sunset
 
     # This ends the game.
+    menu:
+
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
+        "Yes":
+            return
+        "No":
+            return
+        "I'm nervous":
+            return
+        "Bye":
+            return
 
     return
