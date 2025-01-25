@@ -2,9 +2,17 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 36: end of line expected.
-    show color="000000"
-              ^
+File "game/script.rpy", line 231: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    jump choices2_common
+    ^
+
+File "game/script.rpy", line 235: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    jump choices2_common
+    ^
+
+File "game/script.rpy", line 239: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    jump choices2_common
+    ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Fri Jan 24 04:54:21 2025
+Fri Jan 24 16:13:56 2025
