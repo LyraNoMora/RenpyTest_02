@@ -1,0 +1,10 @@
+/game/saves
+/game/cache
+*.rpyc
+*.bak
+errors.txt
+log*.txt
+traceback.txt
+/psd/debug.log
+.DS_Store
+.vscode
