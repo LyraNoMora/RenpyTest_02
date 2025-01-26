@@ -500,8 +500,6 @@ label choices5_common:
     #show apartment red tint
     #with fade
 menu:
-    "Maybe I shouldn’t call her...":
-        jump choices4_b
     "Is tomorrow too soon to hang out again?":
         jump choices4_b
     "What if she says no?":
@@ -752,11 +750,7 @@ menu:
         jump choices7_b
     "Do I look okay to you?":
         jump choices7_b
-    "What the heck!":
-        jump choices7_b
     "Get outta’ my way!":
-        jump choices7_b
-    "You skate like an amateur!":
         jump choices7_b
     "All good, no worries!":
         jump choices7_a
@@ -1561,18 +1555,64 @@ label choices3_common:
 
     if relationship = 0 or relationship = 1:
         jump Bad_End
-    else if relationship = 2 or relationship = 3:
+    if relationship = 2 or relationship = 3:
         jump Neutral_End
     else:
         jump Good_End
 
 label Bad_End:
+    #music - never again
+    "And that’s the last I heard from her."
+
+    "I still have that bottle of bubbles she gave me all those years ago."
+
+    "When I’m sad, I take it out and blow a few bubbles just to watch them pop and vanish."
+
+    "Just like her."
+
+    "I’m not sure where she is or how she’s doing."
+
+    "But wherever she is..."
+
+    "I hope she’s happy."
     return
 
 label Neutral_End:
     jump Bad_End
 
 label Good_End:
+    #music - never again
+    "Against her wishes, I went to the airport that night."
+
+    "I can’t let it end like this."
+
+    "What was all this for?"
+
+    "What about those sleepless nights where she consumed my thoughts?"
+
+    "I saw her bubbles for a reason, I met her for a reason!"
+
+    "I had to see her one last time."
+
+    scene Airport
+    "Please be here, please be here."
+
+    "I have to find her."
+
+    scene Airport
+    with fade
+
+    "I began running around all over the place, trying to find Poppie."
+
+    scene Airport
+    with fade
+
+    "Each and every nook and cranny, I had searched."
+
+    scene Airport
+    with fade
+
+    
     return
 
 
