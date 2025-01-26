@@ -127,11 +127,11 @@ screen say(who, what):
                 id "namebox"
                 style "namebox"
                 text who id "who":
-                    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+                    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
         text what id "what":
             color "#1f1f1f"
-            outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+            outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -264,7 +264,7 @@ style quick_button:
 style quick_button_text:
     properties gui.text_properties("quick_button")
     size 20
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 
 ################################################################################
@@ -351,7 +351,7 @@ style navigation_button_text:
     properties gui.text_properties("navigation_button")
     size 28
     color "#1f1f1f"
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 ## Pause screen ############################################################
 ##
@@ -380,7 +380,7 @@ style game_menu_heading:
     outlines [(absolute(16), "#ffffff", absolute(0), absolute(0))]
 
 style game_menu_return_button_text is gui_button_text:
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 ## Main Menu screen ############################################################
 ##
