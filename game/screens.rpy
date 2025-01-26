@@ -305,7 +305,7 @@ screen navigation():
         spacing 0
 
         # Main menu
-        if main_menu:
+        if main_menu:            
             textbutton _("Start") action Start() at zoom_effect(63):
                 text_xalign 0.5
                 text_yalign 1.0
@@ -348,6 +348,11 @@ screen navigation():
                 text_yalign 1.0
                 background Image( "gui/pause/home.png", xalign=0.5, yalign=0.5)
          
+    if main_menu:
+        textbutton "Credits" action ShowMenu("credits") at zoom_effect(65):
+            xalign 1.0
+            yalign 0
+            style "quick_button"
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
