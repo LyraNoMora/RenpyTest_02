@@ -99,7 +99,7 @@ screen choice(items):
             xysize (400, 400)
             padding (50, 50) 
             action val.action 
-            at bounce_update(idx), pop_in(idx)
+            at bounce_update(idx), pop_in(idx), fade_in(idx)
 
     timer 0.016 repeat True action Function(update_bouncing_bubbles)
 

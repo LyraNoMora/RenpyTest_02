@@ -4,15 +4,20 @@
 
 init offset = -1
 
-transform pop_in(index):
-    xzoom 0 yzoom 0
-    pause index * 0.05
-    easein_back 0.25 xzoom 1.0 yzoom 1.0
+transform pop_in(delay):
+    xzoom 0 yzoom 0 
+    pause delay * 0.05
+    easein_back 0.25 xzoom 1.0 yzoom 1.0 
+
+transform fade_in(delay):
+    blur 50 alpha 0
+    pause delay * 0.05
+    easein 0.25 blur 0 alpha 1.0
 
 transform zoom_effect(delay = 0):
-    zoom 0.5 alpha 0.0
+    zoom 0.5 alpha 0.0 blur 50
     pause delay * 0.05
-    easein_back 0.5 zoom 1.0 alpha 1.0
+    easein_back 0.5 zoom 1.0 alpha 1.0 blur 0
     
     on hover, selected_hover:
         easein_back 0.3 zoom 1.1   
@@ -299,12 +304,12 @@ screen navigation():
                 text_yalign 1.0
                 background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Load") action ShowMenu("load") at zoom_effect(66):
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(64):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(69):
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(65):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
