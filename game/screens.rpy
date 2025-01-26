@@ -263,18 +263,35 @@ style quick_button_text:
 
 screen navigation():
 
+    if main_menu:
+        $xc = 0.3
+        $yc = 0.75
+    else:
+        $xc = 0.5
+        $yc = 0.5
+
     hbox:
         style_prefix "navigation"
 
-        xcenter 0.5
-        ycenter 0.5
-        spacing 16
+        xcenter xc
+        ycenter yc
+        spacing 0
 
         # Main menu
         if main_menu:
-            textbutton _("Start") action Start() at zoom_effect(0) xalign 0.5
-            textbutton _("Load") action ShowMenu("load") at zoom_effect(1) xalign 0.5
-            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2) xalign 0.5
+            textbutton _("Start") action Start() at zoom_effect(0):
+                text_xalign 0.5
+                text_yalign 1.0
+                background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(1):
+                text_xalign 0.5
+                text_yalign 1.0
+                background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
+
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2):
+                text_xalign 0.5
+                text_yalign 1.0
+                background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
 
         # Pause menu
         else:
@@ -362,9 +379,18 @@ screen main_menu():
 
     add gui.main_menu_background
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    $ override_best_ending = False
+
+    # Silhouette
+    if persistent.got_best_ending or override_best_ending:
+        add "gui/poppie_silhouette_2.png" yalign 1 xoffset 40
+        add "gui/lens_flare.png" yalign 0 
+    else:
+        add "gui/poppie_silhouette_1.png" yalign 1 xoffset 40
+
+    # Logo
+    add "gui/logo.png":
+        xalign 0.17 yalign 0.26 zoom 0.57  xoffset -35
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
