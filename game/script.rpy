@@ -45,6 +45,8 @@ label start:
 
     # These display lines of dialogue.
 
+    $ relationship = 0
+
     "The same walk home is always accompanied by the cool ocean breeze."
 
     scene beach sunset
@@ -240,12 +242,12 @@ label choices1_common:
 
     Poppie "Great! Meet me back here, 11am sharp!"
 
-    #fade Poppie
+    show Poppie cheery
+    with moveoutright
+
     "Poppie immediately begins skipping away."
 
     "I glance down at my hands and realize I’m still holding her bubble bottle."
-
-
 
     p "Wait! You forgot your bottle!"
 
@@ -262,53 +264,79 @@ label choices1_common:
 
     "I show up back at the beach at 11am."
 
-    Poppie "Finally, you’re here! I’ve been waiting here for like forever!"
+    show Poppie serious
 
-    p "Forever? I’m actually 5 minutes early!"
+    Poppie "Finally, you’re here! I’ve been waiting here for like, forever!"
+
+    p "Forever? I’m 5 minutes early!"
+
+    show Poppie surprised
 
     Poppie "Wait, really?"
 
-    "It’s not, I’m actually 5 minutes late."
+    "Poppie checks her watch."
+
+    show Poppie serious
+
+    Poppie "You’re five minutes late!"
+
+    p "Alright, you caught me, but I’m here now aren’t I?"
+
+    show Poppie smile
 
     Poppie "Well whatever, let’s get going!"
 
-    #fade to black 
+    scene downtown day
+    with fade
 
-    #scene downtown
+    "We walk for a few minutes, and eventually we arrive downtown."
 
-    "We walk for a few minutes, and eventually we arrive at downtown."
+    show Poppie neutral
 
-    Poppie "Geez, there's a lot of people today, isn’t there?"
+    Poppie "Geez, it’s pretty crowded here today, isn’t it?"
 
-    p "There’s always a lot of people here. Is this your first time coming downtown?"
+    p "Actually this seems pretty normal. There’s always a lot of people. Is this your first time coming downtown?"
 
-    Poppie "No! It’s my second time!"
+    Poppie "No! It’s… it’s my second time!"
 
-    #fade to black
-
-    #back to downtown
+    scene downtown day
+    with dissolve
 
     "The sun is beating down today."
 
-    Poppie "Hey, are you feeling thirsty?"
+    show Poppie neutral
 
-    p "Yeah, a little."
+    Poppie "Hey, are you thirsty?"
 
-    p "I know of a nearby restaurant we could grab something to drink at."
+    p "A little."
 
-    Poppie "Awesome, let’s check it out!"
+    Poppie "I know of a nearby shop we can grab something to drink at."
 
-    #scene to restaurant
+    p "If this is your second time downtown, how do you know what’s around here?"
 
-    p "Here we are."
+    show Poppie smile
 
-    Poppie "Woah, look at all these choices!"
+    Poppie "Well I found it my first time here! I didn’t order anything, though it looked good."
+
+    p "Alright, let’s go check it out! And actually order something this time, yeah?"
+
+    #script says boba shop, asset is a restaurant
+    scene restaurant day
+    with dissolve
+
+    show Poppie neutral
+
+    Poppie "Here we are!"
+
+    "She seems a little nervous, but tries to hide it with her bubbly persona."
+
+    Poppie "Look at all these options, it’s going to be a tough choice!"
 
     p "Well you better hurry up, because the line’s gonna pile on."
 
     "There wasn’t actually a line behind us, but I’d rather not spend the whole day waiting for her to choose."
 
-    show Poppie sad
+    show Poppie serious
 
     Poppie "Aaaah! I can’t decide!"
 
@@ -326,7 +354,7 @@ label choices1_common:
 menu:
     "Bubble Tea":
         jump choices2_a
-    "Milk Tea":
+    "Sparkling Water":
         jump choices2_b
     "Soda":
         jump choices2_c
@@ -334,6 +362,7 @@ menu:
 label choices2_a:
     show Poppie cheery
     Poppie "Good choice! We’ll get 2 of that!"
+    $ relationship += 1
     jump choices2_common
 
 label choices2_b:
@@ -345,90 +374,266 @@ label choices2_c:
     jump choices2_common
 
 label choices2_common:
-    #fade to black
-    #fade to restaurant
-    show Poppie default
+    show Poppie
+    with dissolve
+
+    "Clerk" "Hello, what may I get you?"
+
+    #show restaurant red tint
+menu:
+    "What if I order wrong?":
+        jump choices5_common
+    "What’s my order again?":
+        jump choices5_common
+    "I can’t disappoint Poppie!":
+        $ relationship += 1
+        jump choices5_common
+
+label choices5_common:
+    p "...!"
+
+    scene restaurant day
+    with fade
+
+    show Poppie sad
+
+    Poppie "Hey, is something the matter?"
+
+    p "No, nothing. Nothings wrong."
+
+    Poppie "...Why don’t I order for us?"
+
+    scene restaurant day
+    with dissolve
 
     p "How’s your drink?"
 
     Poppie "Very bubbly."
 
-    p "Heh, I see."
+    p "Heh, I get it."
 
-    " "
+    scene beach sunset
+    with dissolve
 
-    Poppie "Aw..."
+    show Poppie
 
-    p "What’s wrong?"
+    Poppie "Well, today was a lot of fun!"
 
-    Poppie "My bubble bottle’s out of water."
+    Poppie "Here, this is for you."
 
-    p "You know there’s other ways to make bubbles."
+    "Poppie hands me a piece of paper with a phone number on it."
 
-    Poppie "How?"
+    show Poppie cheery
 
-    p "With this."
+    Poppie "Call me if you’d like to do this again sometime, yeah?"
 
-    "I pull out a packet of-"
+    p "Oh, I…um, thank you."
 
-    Poppie "What is this?"
+    Poppie "Well, I'll see you around!"
 
-    p "Bubble gum."
+    show Poppie cheery
+    with moveoutright
 
-    Poppie "But it says \“Hubba Bubba\” on it."
+    "Poppie skipped away, bouncing further and further down the street."
 
-    p "Just take one and pop it in your mouth."
+    "As I get up to go, I shove my hands in my pocket."
 
-    Poppie "Alright."
+    "I feel a little bottle at the bottom."
 
-    "Poppie took one and observed it for a bit."
+    p "Wait, Poppie!"
 
-    p "What’re you waiting for? It’s not gonna poison you or anything."
+    "It seems like she didn’t hear me."
 
-    "After hearing me, Poppie immediately ate it."
+    "Dang, I forgot to give her back her bubbles."
 
-    Poppie "So how are we going to make bubbles with Hubba Bubba?"
+    "Wait, I have her number now!"
 
-    p "Like this."
+    "As fast I could, I pulled out my phone and dialed her number."
 
-    "*POP*"
+    "*BEEP*"
 
-    show Poppie surprised
+    if relationship < 2:
+        p "C’mon…"
 
-    Poppie "Woah! How did you do that?"
-menu:
-    "You can just flatten it on your tongue, and blow.":
-        jump choices3_common
-    "Latch it to the tip of your tongue, then blow on it.":
-        jump choices3_common
-    "Just YOLO it.":
-        jump choices3_common
+    "*BEEP*"
 
-label choices3_common:
-    show Poppie smile
-    Poppie "Okay, I’ll try!"
-
-    # TODO: fix this
-    # show Poppie Trying as hard as possible to blow a bubble
-    "Poppie tries to blow as hard as possible."
-
-    "Eventually something came out of her mouth."
-
-    "..."
-
-    show Poppie surprised
-
-    Poppie "...!"
-
-    "And her gum landed on my face."
+    if relationship < 2:
+        p "Pick up!"
 
     p "..."
 
-    Poppie "..."
+    "*CLICK*"
 
-    p "Maybe that’s enough bubble blowing for today."
+    "It’s her!"
 
-    show beach at sunset
+    Poppie "Hello!"
+
+    p "Poppie, I-"
+
+    Poppie "Unfortunately, I’m not available at this moment to pick-up my phone, please leave a message after the beep!"
+
+    "*BEEP*"
+
+    p "..."
+
+    "She didn’t pick up my call."
+
+    "That’s fine, maybe she was running so fast that she didn’t hear her phone going off."
+
+    "I put the bubble bottle back into my pocket."
+
+    "Next time I’ll remember."
+
+    #show apartment night
+    #with fade
+
+    "What a weird day. Definitely not something I would have planned myself."
+
+    "My routine was thrown off, that’s for sure."
+
+    "..."
+
+    "It was so much more fun."
+
+    "Maybe I should try and call Poppie again to see if she’d like to hang out tomorrow?"
+
+    #show apartment red tint
+    #with fade
+menu:
+    "Maybe I shouldn’t call her...":
+        jump choices4_b
+    "Is tomorrow too soon to hang out again?":
+        jump choices4_b
+    "What if she says no?":
+        jump choices4_b
+    "She didn’t pick up earlier...":
+        jump choices4_b
+    "Sure, I’ll call her.":
+        jump choices4_a
+
+label choices4_a:
+    $ relationship += 1
+
+    p "..."
+    
+    Poppie "Heyyo!"
+    
+    "She picked up!"
+    
+    p "Yo, how’s it hanging?"
+    
+    Poppie "Pretty good!"
+    
+    Poppie "Oh, I saw your call earlier. Sorry I couldn’t pick up. I was in such a rush that I accidentally left my phone at home today."
+    
+    p "No worries."
+
+    Poppie "So, what did you call me earlier for?"
+
+    p "I was gonna ask if you’re available to hang out again tomorrow."
+    jump choices4_common
+
+label choices4_b:
+    p "..."
+
+    "Yeah, maybe it’s best if I don’t."
+
+    "*RIIING RIIING*"
+
+    "...?"
+
+    "My phone’s ringing."
+
+    "*CLICK*"
+
+    p "Hello?"
+
+    Poppie "Thank goodness it’s you!"
+
+    p "Huh?"
+
+    Poppie "Well, I gave you my number, but I never got yours!"
+
+    p "O-oh, right."
+
+    Poppie "I saw I had a missed call from earlier, so I decided to call it and see if it was you!"
+
+    Poppie "And it is! Heyyo!"
+
+    Poppie "By the way, I couldn’t pick up the phone earlier because I was in such a rush that I accidentally left my phone at home!"
+
+    p "No worries."
+
+    "Well since she’s here, I might as well ask what I was going to initially."
+
+    p "Are you, by any chance, busy on the next day? If not, if you would like to wanna meet up somewhere out?"
+
+label choices4_common:
+    Poppie "Sure, I’d love to! Maybe we could go to the ice rink together!"
+
+    "The ice rink? But..."
+
+    p "Well, I’m not much of an ice skater myself."
+
+    Poppie "It’s okay! I could teach you! Trust me, I’m a pro!"
+
+    "Even through the phone, I could tell she’s making a smug look."
+
+    p "Heh, very well then. We’ll meet at 11am by the beach, just like today?"
+
+    Poppie "Heehee, you bet!"
+
+    Poppie "See you tomorrow then."
+
+    show beach day
+    with fade
+
+    "Morning came pretty fast, and next thing I know, I’m waiting for Poppie at the same spot."
+
+    p "Hm..."
+
+    "I check the clock, it’s 11:10."
+
+    p "She’s certainly taking her time today."
+
+    Poppie "Gooooood morning!"
+
+    "From the distance, I hear Poppie’s faint voice."
+
+    show Poppie
+
+    Poppie "Sorry, were you waiting for a while?"
+menu:
+    "Nope, I just got here.":
+        jump choices6_common
+    "What took you so long?":
+        jump choices6_a
+
+label choices6_a:
+    show Poppie sad
+
+    Poppie "Sorry, I had a bit of trouble sleeping last night."
+
+    p "I see."
+
+    jump choices6_common
+
+label choices6_common:
+    show Poppie smile
+
+    Poppie "Well anyways, let’s get going! I’ll lead the way!"
+
+    #scene ice_rink interior
+
+    Poppie "How are those shoes?"
+
+    p "A little tight? Don’t they have a bigger size here?"
+
+    Poppie "Perfect, you’re ready to go, c’mon!"
+
+
+
+    show beach sunset
     
     call screen the_big_question()
 
