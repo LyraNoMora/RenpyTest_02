@@ -1487,7 +1487,77 @@ label choices3_common:
 
     Poppie "She died three days ago."
 
+    p "Poppie… I’m so sorry."
 
+    show Poppie looking away sad
+
+    Poppie "That’s when I decided that I need to get my mind off it by going outside. I found that bubble bottle in her house."
+
+    Poppie "When I was young, we used to play with bubbles when I would visit her. I thought if I tried it then, it might help me."
+
+    Poppie "It didn’t help."
+
+    show Poppie calm smile
+
+    Poppie "..."
+
+    Poppie "Just when I was about to give up hope."
+
+    Poppie "I met you."
+
+    Poppie "You gave me the break I needed."
+
+    Poppie "Someone you listened to my weird ramblings."
+
+    Poppie "Someone who took a chance on me."
+
+    Poppie "You..."
+
+    Poppie "You saved me."
+
+    show Poppie looking away neutral
+
+    Poppie "..."
+
+    Poppie "I wish I could stay here with you."
+
+    Poppie "We could’ve had fun skating together."
+
+    Poppie "Learned how to cook new meals."
+
+    Poppie "And play with bubbles till the sun sets."
+
+    Poppie "But I knew from the beginning that my time here wouldn’t last forever."
+
+    Poppie "This happiness..."
+
+    Poppie "Someday, it would pop."
+
+    Poppie "..."
+
+    p "..."
+
+    p "Is there anything I could do to make you stay?"
+
+    show Poppie calm smile
+
+    Poppie "I’m so sorry, but my flight leaves tonight."
+
+    p "..."
+
+    show Poppie sad
+
+    Poppie "..."
+
+    show Poppie looking away sad
+
+    Poppie "Please, don’t show up at the airport tonight."
+
+    Poppie "I can’t stand the thought of having to say goodbye to another person I care about."
+
+    p "..."
+
+    #fade to black
 
 
 
