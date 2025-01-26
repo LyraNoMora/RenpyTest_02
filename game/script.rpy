@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -66,9 +66,6 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    # change to black screen
-    #scene beach sunset
-
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
@@ -112,13 +109,13 @@ label start:
 
     g "Hm?"
 
+    show Poppie
+
     "She looks up, directly at my eye."
 
     "Crap, I gotta say something before this situation turns awkward."
 
     p "Sorry to interrupt, but I was drawn here by the bubbles floating down the road. Why are you doing that?"
-
-    show Poppie neutral
 
     g "Doing what?"
 
@@ -141,7 +138,7 @@ menu:
 
 label choices1_common:
 
-    show Poppie neutral
+    show Poppie
 
     Poppie "So my bubbles brought you here to me, hm?"
 
@@ -355,9 +352,8 @@ label choices1_common:
     Poppie "Well I found it my first time here! I didn’t order anything, though it looked good."
 
     p "Alright, let’s go check it out! And actually order something this time, yeah?"
-
-    #script says boba shop, asset is a restaurant
-    scene restaurant day
+ 
+    scene restaurant
     with dissolve
 
     show Poppie neutral
@@ -417,7 +413,7 @@ label choices2_common:
 
     play music "music/Clouded.mp3"
 
-    #show restaurant red tint
+    scene restaurant red tint
 menu:
     "What if I order wrong?":
         jump choices5_common
@@ -430,7 +426,7 @@ menu:
 label choices5_common:
     p "...!"
 
-    scene restaurant day
+    scene restaurant
     with fade
 
     play music "music/Morning.mp3"
@@ -443,7 +439,7 @@ label choices5_common:
 
     Poppie "...Why don’t I order for us?"
 
-    scene restaurant day
+    scene restaurant
     with dissolve
 
     p "How’s your drink?"
@@ -534,8 +530,8 @@ label choices5_common:
 
     "Next time I’ll remember."
 
-    #show apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     play music "music/Leaving.mp3"
 
@@ -549,8 +545,8 @@ label choices5_common:
 
     "Maybe I should try and call Poppie again to see if she’d like to hang out tomorrow?"
 
-    #show apartment red tint
-    #with fade
+    scene apartment red tint
+    with fade
 
     play music "music/Clouded.mp3"
 
@@ -690,8 +686,8 @@ label choices6_common:
 
     Poppie "Well anyways, let’s get going! I’ll lead the way!"
 
-    #scene ice_rink interior
-    #with fade
+    scene ice_rink interior
+    with fade
 
     play music "music/Ice Skating.mp3"
 
@@ -701,8 +697,8 @@ label choices6_common:
 
     Poppie "Perfect, you’re ready to go, c’mon!"
 
-    #scene ice_rink interior
-    #with fade
+    scene ice_rink interior
+    with fade
 
     "As I step out onto the rink, the ice is slippier than I remember."
 
@@ -788,8 +784,8 @@ label choices6_common:
 
     "I couldn’t help but laugh with her."
 
-    #scene ice-rink interior
-    #with fade
+    scene ice_rink interior
+    with fade
 
     "The two of us get up and continue skating together."
 
@@ -819,9 +815,9 @@ label choices6_common:
 
     "Skater" "Hey, sorry about that! Are you okay?"
 
-    #scene ice-rink red tint
-
     play music "music/Clouded.mp3"
+
+    scene ice-rink red tint
 
 menu:
     "Watch where you are going!":
@@ -841,7 +837,7 @@ label choices7_a:
 
     "The right words can’t seem to get out of my mouth."
 
-    #scene ice-rink interior
+    scene ice_rink interior
 
     play music "music/Ice Skating.mp3"
 
@@ -853,8 +849,8 @@ label choices7_a:
 
     "The skater skated away."
 
-    #scene ice-rink interior
-    #with fade
+    scene ice_rink interior
+    with fade
 
     play music "music/Poppie_s Theme.mp3"
 
@@ -895,9 +891,9 @@ label choices7_b:
 
     "The right words can’t seem to get out of my mouth."
 
-    #scene ice-rink interior
-    
-    play music "music/Ice Skating.mp3"
+    scene ice_rink interior
+
+    #music - ice skating
 
     show Poppie cheery
 
