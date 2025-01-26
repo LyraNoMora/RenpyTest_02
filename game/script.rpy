@@ -890,6 +890,51 @@ label choices7_common:
 
     Poppie "I’m glad you gave learning how to ice skate a shot."
 
+    show Poppie serious
+
+    Poppie "I expect you to be able skate like a pro the next time I see you, okay?"
+
+    p "Aye aye, captain."
+
+    #music - none
+
+    show Poppie
+
+    Poppie "..."
+
+    show Poppie surprised
+
+    "*Stomach grumble*"
+
+    Poppie "..."
+
+    p "..."
+
+    Poppie "Um..."
+
+    p "Are you hungry?"
+
+    Poppie "Maybe just a little bit."
+
+    p "You can come over to my place for dinner if you want."
+
+    show Poppie sad
+
+    Poppie "Is that okay with you?"
+
+    p "Yeah, my place is pretty close by."
+
+    show Poppie
+
+    Poppie "Alright, lead the way!"
+
+    #music - Poppie's Theme
+
+    #scene apartment night
+    #with fade
+
+    ""
+
 
 
 
