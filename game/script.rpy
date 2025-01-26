@@ -630,6 +630,8 @@ label choices4_b:
     p "Are you, by any chance, busy on the next day? If not, if you would like to wanna meet up somewhere out?"
 
 label choices4_common:
+    scene apartment night
+
     Poppie "Sure, I’d love to! Maybe we could go to the ice rink together!"
 
     "The ice rink? But..."
@@ -704,6 +706,8 @@ label choices6_common:
 
     p "So… How does one skate again?"
 
+    show Poppie smile
+
     Poppie "Just lean your body forward, push your legs forward and out, and glide!"
 
     p "Like this? WOAAAH!"
@@ -745,6 +749,7 @@ label choices6_common:
     "*CRASH*"
 
     show Poppie sad
+    with moveouttop
 
     Poppie "WA-WAAAH!"
 
@@ -910,8 +915,8 @@ label choices7_b:
 
     Poppie "..."
 
-    #scene ice-rink interior
-    #with fade
+    scene ice_rink interior
+    with fade
 
     play music "music/Poppie_s Theme.mp3"
 
