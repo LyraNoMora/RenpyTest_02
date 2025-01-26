@@ -361,16 +361,16 @@ menu:
 
 label choices2_a:
     show Poppie cheery
-    Poppie "Good choice! We’ll get 2 of that!"
+    Poppie "Good choice! We’ll get two of that!"
     $ relationship += 1
     jump choices2_common
 
 label choices2_b:
-    Poppie "Alright, we’ll get 2 of that!"
+    Poppie "Alright, we’ll get two of that!"
     jump choices2_common
 
 label choices2_c:
-    Poppie "Right then, we’ll get 2 of that!"
+    Poppie "Right then, we’ll get two of that!"
     jump choices2_common
 
 label choices2_common:
@@ -1168,7 +1168,7 @@ label choices8_common:
 
     "How’s that possible?"
 
-    "It’s strange, we’ve hung out for 2 days straight,"
+    "It’s strange, we’ve hung out for two days straight,"
 
     "And despite only knowing each other for a short period of time, we’ve grown quite close."
 
@@ -1216,7 +1216,7 @@ label choices8_common:
     scene beach day
     with fade
 
-    "Two kids run around on the beach together. One of the trips and falls into the sand."
+    "Two kids run around on the beach together. One of them trips and falls into the sand."
 
     "Usually I’d laugh at that, but I don’t seem to have the willpower to do so."
 
@@ -1485,8 +1485,10 @@ label choices3_common:
 
     Poppie "..."
 
-    Poppie "She died 3 days ago."
+    Poppie "She died three days ago."
 
-    
+
+
+
 
     return
