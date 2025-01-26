@@ -118,7 +118,7 @@ screen say(who, what):
                     outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
         text what id "what":
-            color "#000000"
+            color "#1f1f1f"
             outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 
@@ -222,17 +222,18 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
+            xalign 1.0
+            yalign 0
 
             # textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
+            # textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
+            textbutton _("Pause") action ShowMenu("pause_menu")
+            # textbutton _("Save") action ShowMenu('save')
             # textbutton _("Q.Save") action QuickSave()
             # textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            # textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -250,6 +251,8 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    size 20
+    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 
 ################################################################################
@@ -334,7 +337,7 @@ style navigation_button:
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
     size 28
-    color "#000000"
+    color "#1f1f1f"
     outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 ## Pause screen ############################################################
