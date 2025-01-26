@@ -22,7 +22,7 @@ transform zoom_effect(delay = 0):
         
 transform cinematic_thingy(delay = 0):
     xanchor 0.5 yanchor 0.5 transform_anchor True
-    zoom 2.5 alpha 0 blur 5 rotate -45 xoffset 190 yoffset 60
+    zoom 2.5 alpha 0 blur 50 rotate -45 xoffset 190 yoffset 60
     pause delay * 0.05
     easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
 
