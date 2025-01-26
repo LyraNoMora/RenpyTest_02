@@ -88,11 +88,6 @@ transform bounce_update(index):
     xanchor 0.5
     yanchor 0.5
 
-transform pop_in(index):
-    xzoom 0 yzoom 0
-    pause index * 0.15
-    easein_back 0.25 xzoom 1.0 yzoom 1.0
-
 screen choice(items):
     style_prefix "choice"
 
