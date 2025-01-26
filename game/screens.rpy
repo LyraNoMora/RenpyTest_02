@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -528,8 +528,8 @@ style return_button is navigation_button
 style return_button_text is navigation_button_text
 
 style game_menu_outer_frame:
-    bottom_padding 45
-    top_padding 180
+    bottom_padding 40
+    top_padding 120
 
     background "gui/overlay/game_menu.png"
 
@@ -538,12 +538,12 @@ style game_menu_navigation_frame:
     yfill True
 
 style game_menu_content_frame:
-    left_margin 60
-    right_margin 30
+    left_margin 130
+    right_margin 80
     top_margin 15
 
 style game_menu_viewport:
-    xsize 1380
+    xsize 1080
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
