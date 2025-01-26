@@ -4,6 +4,10 @@
 
 init offset = -1
 
+transform zoom_effect(delay = 0):
+    zoom 0.5 alpha 0.0
+    pause delay * 0.03
+    easein_back 0.5 zoom 1.0 alpha 1.0
 
 ################################################################################
 ## Styles
@@ -216,13 +220,13 @@ screen quick_menu():
             xalign 0.5
             yalign 1.0
 
-            textbutton _("Back") action Rollback()
+            # textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("Auto") action Preference("auto-forward", "toggle")
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
+            # textbutton _("Q.Save") action QuickSave()
+            # textbutton _("Q.Load") action QuickLoad()
             textbutton _("Prefs") action ShowMenu('preferences')
 
 
@@ -254,60 +258,92 @@ style quick_button_text:
 
 screen navigation():
 
-    vbox:
+    hbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+        xcenter 0.5
+        ycenter 0.5
 
-        spacing gui.navigation_spacing
-
+        spacing 20
+        # Main menu
         if main_menu:
+            textbutton _("Start") action Start() at zoom_effect(0) xalign 0.5
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(1) xalign 0.5
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2) xalign 0.5
 
-            textbutton _("Start") action Start()
-
+        # Pause menu
         else:
+            textbutton _("History") action ShowMenu("history") at zoom_effect(4):
+                text_xalign 0.5
+                text_yalign 0.9
+                background Image( "gui/button/pause_menu_idle_background.png")
+                
+            textbutton _("Save") action ShowMenu("save") at zoom_effect(2):
+                text_xalign 0.5
+                text_yalign 0.9
+                background Image( "gui/button/pause_menu_idle_background.png")
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(0):
+                text_xalign 0.5
+                text_yalign 0.9
+                background Image( "gui/button/pause_menu_idle_background.png")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2):
+                text_xalign 0.5
+                text_yalign 0.9
+                background Image( "gui/button/pause_menu_idle_background.png")
 
-        textbutton _("Load") action ShowMenu("load")
-
-        textbutton _("Preferences") action ShowMenu("preferences")
-
-        if _in_replay:
-
-            textbutton _("End Replay") action EndReplay(confirm=True)
-
-        elif not main_menu:
-
-            textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
-
-        if renpy.variant("pc"):
-
-            ## The quit button is banned on iOS and unnecessary on Android and
-            ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
-
+            textbutton _("Main Menu") action MainMenu() at zoom_effect(4):
+                text_xalign 0.5
+                text_yalign 0.9
+                background Image( "gui/button/pause_menu_idle_background.png")
+         
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
 
 style navigation_button:
+    xcenter 0.5
+    ycenter 0.5
+    xysize (200, 200)
     size_group "navigation"
     properties gui.button_properties("navigation_button")
 
 style navigation_button_text:
     properties gui.text_properties("navigation_button")
+    size 28
+    color "#000000"
+    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
+## Pause screen ############################################################
+##
+## Shows the pause menu
+##
+screen pause_menu():
+    
+    style_prefix "game_menu"
+
+    tag menu
+
+    add gui.game_menu_background
+
+    use navigation
+    
+    label "Paused" xalign 0.5
+
+    textbutton _("< Return"):
+        style "return_button"
+        xalign 0.05
+        yalign 0.95
+        action Return()
+
+style game_menu_heading:
+    size 48
+    color "#000000"
+    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+
+style game_menu_return_button_text is gui_button_text:
+    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 ## Main Menu screen ############################################################
 ##
@@ -380,7 +416,7 @@ style main_menu_version:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
+screen game_menu(title, scroll=None, yinitial=0.0):
 
     style_prefix "game_menu"
 
@@ -392,58 +428,55 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
     frame:
         style "game_menu_outer_frame"
 
-        hbox:
+        xalign 0.5
 
-            ## Reserve space for the navigation section.
-            frame:
-                style "game_menu_navigation_frame"
+        frame:
+            style "game_menu_content_frame"
 
-            frame:
-                style "game_menu_content_frame"
+            if scroll == "viewport":
 
-                if scroll == "viewport":
+                viewport:
+                    yinitial yinitial
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+                    pagekeys True
 
-                    viewport:
-                        yinitial yinitial
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
+                    side_yfill True
 
-                        side_yfill True
-
-                        vbox:
-                            spacing spacing
-
-                            transclude
-
-                elif scroll == "vpgrid":
-
-                    vpgrid:
-                        cols 1
-                        yinitial yinitial
-
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
-
-                        side_yfill True
-
-                        spacing spacing
-
+                    vbox:
                         transclude
 
-                else:
+            elif scroll == "vpgrid":
+
+                vpgrid:
+                    cols 1
+                    yinitial yinitial
+
+                    scrollbars "vertical"
+                    mousewheel True
+                    draggable True
+                    pagekeys True
+
+                    side_yfill True
 
                     transclude
 
-    use navigation
+            else:
 
-    textbutton _("Return"):
-        style "return_button"
+                transclude
 
-        action Return()
+    # use navigation
+
+    if main_menu:
+        textbutton _("< Return"):
+            style "return_button"
+            action Return()
+
+    else:
+        textbutton _("< Return"):
+            style "return_button"
+            action ShowMenu("pause_menu")
 
     label title
 
@@ -617,42 +650,27 @@ screen file_slots(title):
                         key "save_delete" action FileDelete(slot)
 
             ## Buttons to access other pages.
-            vbox:
+            hbox:
                 style_prefix "page"
 
                 xalign 0.5
                 yalign 1.0
 
-                hbox:
-                    xalign 0.5
+                spacing gui.page_spacing
 
-                    spacing gui.page_spacing
+                textbutton _("<") action FilePagePrevious()
 
-                    textbutton _("<") action FilePagePrevious()
-                    key "save_page_prev" action FilePagePrevious()
+                if config.has_autosave:
+                    textbutton _("{#auto_page}A") action FilePage("auto")
 
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}A") action FilePage("auto")
+                if config.has_quicksave:
+                    textbutton _("{#quick_page}Q") action FilePage("quick")
 
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}Q") action FilePage("quick")
+                ## range(1, 10) gives the numbers from 1 to 9.
+                for page in range(1, 10):
+                    textbutton "[page]" action FilePage(page)
 
-                    ## range(1, 10) gives the numbers from 1 to 9.
-                    for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
-
-                    textbutton _(">") action FilePageNext()
-                    key "save_page_next" action FilePageNext()
-
-                if config.has_sync:
-                    if CurrentScreenName() == "save":
-                        textbutton _("Upload Sync"):
-                            action UploadSync()
-                            xalign 0.5
-                    else:
-                        textbutton _("Download Sync"):
-                            action DownloadSync()
-                            xalign 0.5
+                textbutton _(">") action FilePageNext()
 
 
 style page_label is gui_label
@@ -712,6 +730,13 @@ screen preferences():
                         label _("Display")
                         textbutton _("Window") action Preference("display", "window")
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
+
+                vbox:
+                    style_prefix "radio"
+                    label _("Rollback Side")
+                    textbutton _("Disable") action Preference("rollback side", "disable")
+                    textbutton _("Left") action Preference("rollback side", "left")
+                    textbutton _("Right") action Preference("rollback side", "right")
 
                 vbox:
                     style_prefix "check"
@@ -861,7 +886,7 @@ screen history():
     ## Avoid predicting this screen, as it can be very large.
     predict False
 
-    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0, spacing=gui.history_spacing):
+    use game_menu(_("History"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
 
         style_prefix "history"
 
