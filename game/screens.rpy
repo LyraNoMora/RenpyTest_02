@@ -4,15 +4,27 @@
 
 init offset = -1
 
+transform pop_in(index):
+    xzoom 0 yzoom 0
+    pause index * 0.15
+    easein_back 0.25 xzoom 1.0 yzoom 1.0
+
 transform zoom_effect(delay = 0):
     zoom 0.5 alpha 0.0
-    pause delay * 0.03
+    pause delay * 0.15
     easein_back 0.5 zoom 1.0 alpha 1.0
     
     on hover, selected_hover:
         easein_back 0.3 zoom 1.1   
     on idle, selected_idle:
         easein_back 0.3 zoom 1.0
+
+        
+transform cinematic_thingy(delay = 0):
+    xanchor 0.5 yanchor 0.5 transform_anchor True
+    zoom 2.5 alpha 0 blur 5 rotate -45 xoffset 190 yoffset 60
+    pause delay * 0.15
+    easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
 
 ################################################################################
 ## Styles
@@ -268,7 +280,7 @@ screen navigation():
 
     if main_menu:
         $xc = 0.3
-        $yc = 0.75
+        $yc = 0.77
     else:
         $xc = 0.5
         $yc = 0.5
@@ -282,16 +294,17 @@ screen navigation():
 
         # Main menu
         if main_menu:
-            textbutton _("Start") action Start() at zoom_effect(0):
+            textbutton _("Start") action Start() at zoom_effect(25):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
-            textbutton _("Load") action ShowMenu("load") at zoom_effect(1):
+
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(26):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2):
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(27):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
@@ -380,20 +393,26 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    add gui.main_menu_background at cinematic_thingy(0):
+        xpos 0.5 ypos 0.5
 
-    $ override_best_ending = False
+    $ override_best_ending = True
 
     # Silhouette
     if persistent.got_best_ending or override_best_ending:
-        add "gui/poppie_silhouette_2.png" yalign 1 xoffset 40
-        add "gui/lens_flare.png" yalign 0 
+        add "gui/poppie_silhouette_2.png" at cinematic_thingy(5):
+            xpos 0.5 ypos 0.5 xoffset 40
+        add "gui/lens_flare.png" at cinematic_thingy(0):
+            xpos 0.5 ypos 0.5
     else:
-        add "gui/poppie_silhouette_1.png" yalign 1 xoffset 40
+        add "gui/poppie_silhouette_1.png" at cinematic_thingy(5):
+            xpos 0.5 ypos 0.5 xoffset 40
 
     # Logo
     add "gui/logo.png":
-        xalign 0.17 yalign 0.26 zoom 0.57  xoffset -35
+        xanchor 0.5 yanchor 0.5
+        xpos 0.27 ypos 0.3 zoom 0.57
+        at pop_in(20)
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
