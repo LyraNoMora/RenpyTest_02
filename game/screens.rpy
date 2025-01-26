@@ -6,12 +6,12 @@ init offset = -1
 
 transform pop_in(index):
     xzoom 0 yzoom 0
-    pause index * 0.15
+    pause index * 0.05
     easein_back 0.25 xzoom 1.0 yzoom 1.0
 
 transform zoom_effect(delay = 0):
     zoom 0.5 alpha 0.0
-    pause delay * 0.15
+    pause delay * 0.05
     easein_back 0.5 zoom 1.0 alpha 1.0
     
     on hover, selected_hover:
@@ -23,7 +23,7 @@ transform zoom_effect(delay = 0):
 transform cinematic_thingy(delay = 0):
     xanchor 0.5 yanchor 0.5 transform_anchor True
     zoom 2.5 alpha 0 blur 5 rotate -45 xoffset 190 yoffset 60
-    pause delay * 0.15
+    pause delay * 0.05
     easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
 
 ################################################################################
@@ -294,17 +294,17 @@ screen navigation():
 
         # Main menu
         if main_menu:
-            textbutton _("Start") action Start() at zoom_effect(25):
+            textbutton _("Start") action Start() at zoom_effect(63):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Load") action ShowMenu("load") at zoom_effect(26):
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(66):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(27):
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(69):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
@@ -400,19 +400,19 @@ screen main_menu():
 
     # Silhouette
     if persistent.got_best_ending or override_best_ending:
-        add "gui/poppie_silhouette_2.png" at cinematic_thingy(5):
+        add "gui/poppie_silhouette_2.png" at cinematic_thingy(10):
             xpos 0.5 ypos 0.5 xoffset 40
         add "gui/lens_flare.png" at cinematic_thingy(0):
             xpos 0.5 ypos 0.5
     else:
-        add "gui/poppie_silhouette_1.png" at cinematic_thingy(5):
+        add "gui/poppie_silhouette_1.png" at cinematic_thingy(10):
             xpos 0.5 ypos 0.5 xoffset 40
 
     # Logo
     add "gui/logo.png":
         xanchor 0.5 yanchor 0.5
         xpos 0.27 ypos 0.3 zoom 0.57
-        at pop_in(20)
+        at pop_in(60)
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
