@@ -70,7 +70,7 @@ screen credits:
             text "Everyone in SJSU’s Game Dev Club!"
 
             label ""
-            text "This game was made in 24 hours for Global Game Jam 2025."
+            text "This game was made in 48 hours for Global Game Jam 2025."
 
     timer 30 action Hide("credits", transition=dissolve)
     timer 30 action Return()
