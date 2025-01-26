@@ -12,7 +12,7 @@ init python:
     import random
 
     class BouncingBubble:
-        bubble_radius = 200 / 2
+        bubble_radius = 400 / 2
 
         wind_angle = 0
         wind_angle_speed = 0
@@ -97,17 +97,22 @@ screen choice(items):
     style_prefix "choice"
 
     python:
-        BouncingBubble.update_bubble_radius(200 / 2)
+        BouncingBubble.update_bubble_radius(400 / 2)
 
     for idx, val in enumerate(items):
-        textbutton val.caption xysize (200, 200) action val.action at bounce_update(idx), pop_in(idx)
+        textbutton val.caption:
+            xysize (400, 400)
+            padding (50, 50) 
+            action val.action 
+            at bounce_update(idx), pop_in(idx)
 
     timer 0.016 repeat True action Function(update_bouncing_bubbles)
 
 
 style choice_vbox is vbox
 style choice_button is button
-style choice_button_text is button_text
+style choice_button_text is button_text:
+    outlines [(absolute(2), "#000", absolute(0), absolute(0))]
 
 style choice_vbox:
     xalign 0.5
