@@ -6,27 +6,56 @@
 define p = Character("Protagonist", color="#C47A2A", window_background=Image("gui/textbox_player.png", xalign=0.5, yalign=1.0))
 define Poppie = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
 define g = Character("Girl", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define a = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define s = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
 
 # Define images
 
 layeredimage Poppie:
 
     always:
-        "poppie_body"
+        "poppi_base"
 
-    # group face auto:
-    #     attribute neutral default:
-    #         "poppie_neutral"
-    #     attribute sad:
-    #         "poppie_sad"
-    #     attribute smile:
-    #         "poppie_smile"
-    #     attribute surprised:
-    #         "poppie_surprised"
-    #     attribute cheery:
-    #         "poppie_cheery"
-    #     attribute gum:
-    #         "poppie_gum"
+    group face auto:
+        attribute neutral default:
+            "poppi_neutral"
+        attribute sad:
+            "poppi_sad"
+        attribute smile:
+            "poppi_smile"
+        attribute surprised:
+            "poppi_surprise"
+        attribute cheery:
+            "poppi_cheery"
+        attribute calm:
+            "poppi_calm"
+        attribute cry:
+            "poppi_cry"
+        attribute serious:
+            "poppi_serious"
+
+
+layeredimage a:
+
+    always:
+        "poppi_mature_base"
+
+    group face auto:
+        attribute neutral default:
+            "poppi_mature_neutral"
+        attribute sad:
+            "poppi_mature_sad"
+
+layeredimage s:
+
+    always:
+        "poppi_side_base"
+
+    group face auto:
+        attribute neutral default:
+            "poppi_side_neutral"
+        attribute sad:
+            "poppi_side_sad"
 
 # The game starts here.
 
@@ -1612,8 +1641,121 @@ label Good_End:
     scene Airport
     with fade
 
-    
+    "Nothing, there’s no sign of her."
+
+    "Then, an idea pops into my mind."
+
+    #music - joy
+
+    "I shove my hand in my pocket and pull out the bubble bottle she gave me on the first day."
+
+    "I pull the wand out and blow into it, creating a flurry of bubbles."
+
+    "The people around me give me strange looks."
+
+    "I know they think I’m weird, or child-like, but I don’t care."
+
+    "I need her to see."
+
+    scene Airport
+    with fade
+
+    show Poppie sad
+    Poppie "..."
+
+    Poppie "Huh? Bubbles?"
+
+    Poppie "What... Where are you coming from?"
+
+    scene Airport
+    with fade
+
+    "A short while later, I hear a trail of footsteps approaching."
+
+    p "...!"
+
+    show Poppie calm smile
+
+    Poppie "You showed up, even after I told you not to."
+
+    p "I know, I’m sorry Poppie, I just couldn’t-"
+
+    show Poppie cry
+
+    Poppie "I’m so overjoyed right now."
+
+    Poppie "..."
+
+    Poppie "I’m just so happy to see you, even if it’s just one last time."
+
+    p "..."
+
+    p "Please, stay."
+
+    Poppie "..."
+
+    Poppie "I can't."
+
+    p "My every day was the same."
+
+    p "I thought I liked my routine, I felt safe in the mundane."
+
+    p "I never wanted anything to change."
+
+    p "Until I met you."
+
+    show Poppie smile
+
+    p "I didn’t save you, Poppie."
+
+    Poppie "..."
+
+    p "You saved me."
+
+    Poppie "..."
+
+    p "..."
+
+    Poppie "I promise I won’t ever forget you, or all of those fond memories we made together."
+
+    Poppie "..."
+
+    Poppie "I hope you’ll remember me."
+
+    #fade to black
+
+    "And that was it."
+
+    "Poppie got on her plane, and flew away."
+
+    "..."
+
+    #music - leaving
+    #show apartment
+    "With Poppie gone, life returned to normal."
+
+    scene downtown day
+    "Sure, my life went on, but there was barely anything exciting happening."
+
+    #fade to black
+
+    "And over the years, my memories of Poppie started to slowly dissipate."
+
+    "..."
+
+    scene restaurant day
+    p "Two Bubble Teas, please."
+
+    "Clerk" "Right away!"
+
+    #fade to black
+
+    "Clerk" "Here you go!"
+
+    p "Thank you."
+
+    scene
+
     return
 
 
-    return
