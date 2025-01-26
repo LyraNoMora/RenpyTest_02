@@ -95,7 +95,7 @@ label start:
 
     "I follow the trail and see the source of the floating chaos:"
 
-    show Poppie looking away neutral
+    show s neutral
 
     g "..."
 
@@ -1110,7 +1110,7 @@ label choices7_common:
 
     Poppie "It will be harder to go if I stay, and I know I’ll have to leave eventually."
 
-    show Poppie calm smile
+    show Poppie calm
 
     Poppie "After all, every bubble has to pop."
 
@@ -1444,25 +1444,25 @@ label choices3_common:
 
     Poppie "..."
 
-    show Poppie looking away neutral
+    show s
 
-    Poppie "Hmph."
+    s "Hmph."
 
     p "...?"
 
-    Poppie "I’m not a confident person myself too, you know?"
+    s "I’m not a confident person myself too, you know?"
 
     p "You? But you’re so-"
 
-    Poppie "\“Outgoing\”? Please, if only."
+    s "\“Outgoing\”? Please, if only."
 
-    Poppie "I’m afraid of what people think of me too."
+    s "I’m afraid of what people think of me too."
 
-    Poppie "Do you know how much courage it took for me to ask you if you wanted to hang out again when we first met?"
+    s "Do you know how much courage it took for me to ask you if you wanted to hang out again when we first met?"
 
     p "..."
 
-    show Poppie calm smile
+    show Poppie calm
 
     Poppie "I was so afraid at the time that you’d say \“No.\”"
 
@@ -1472,7 +1472,7 @@ label choices3_common:
 
     p "That’s not-! You shouldn’t, I-!"
 
-    show Poppie looking away neutral
+    show s sad
 
     Poppie "Are you disappointed that I’m not the person you thought I was?"
 
@@ -1482,7 +1482,7 @@ label choices3_common:
 
     p "Can I say something?"
 
-    show Poppie calm smile
+    show Poppie calm
     
     call screen the_big_question()
 
@@ -1500,7 +1500,7 @@ label choices3_common:
 
     p "...!"
 
-    show Poppie looking away neutral
+    show s
 
     Poppie "My family lives far away. I only moved here to take care of my aunt."
 
@@ -1512,7 +1512,7 @@ label choices3_common:
 
     p "Poppie… I’m so sorry."
 
-    show Poppie looking away sad
+    show s sad
 
     Poppie "That’s when I decided that I need to get my mind off it by going outside. I found that bubble bottle in her house."
 
@@ -1520,7 +1520,7 @@ label choices3_common:
 
     Poppie "It didn’t help."
 
-    show Poppie calm smile
+    show Poppie calm
 
     Poppie "..."
 
@@ -1538,7 +1538,7 @@ label choices3_common:
 
     Poppie "You saved me."
 
-    show Poppie looking away neutral
+    show s neutral
 
     Poppie "..."
 
@@ -1562,7 +1562,7 @@ label choices3_common:
 
     p "Is there anything I could do to make you stay?"
 
-    show Poppie calm smile
+    show Poppie calm
 
     Poppie "I’m so sorry, but my flight leaves tonight."
 
@@ -1674,7 +1674,7 @@ label Good_End:
 
     p "...!"
 
-    show Poppie calm smile
+    show Poppie calm
 
     Poppie "You showed up, even after I told you not to."
 
@@ -1754,7 +1754,82 @@ label Good_End:
 
     p "Thank you."
 
-    scene
+    scene downtown day
+    with dissolve
+
+    "I bought two bubble teas."
+
+    "I’m not sure why. It’s not like it was ever my favorite drink."
+
+    "And why two? I can barely finish one."
+
+    "Whatever, maybe I’ll just store it in my fridge and save it for the next day."
+
+    scene beach sunset
+    with dissolve
+
+    "Left at the intersection, three blocks down, right at the corner store, and then I’m home."
+
+    "I like it when things stay the same. Routines are predictable, dependable."
+
+    "As I continue down the road, something catches my eye."
+
+    #music - none 
+
+    #a bubble flies by the screen
+
+    p "...!"
+
+    p "A bubble?"
+
+    "That’s new. Where are those bubbles coming from?"
+
+    "I follow the trail and see the source of the floating chaos:"
+
+    #music - reunion
+
+    show s
+
+    g "..."
+
+    #shake screen
+
+    p "Are- Are you-?"
+
+    "I can’t believe what I’m looking at."
+
+    scene beach sunset
+    with fade
+
+    "I rub my eyes, in disbelief at what I’m seeing."
+
+    Poppie "Hm?"
+
+    show a sad
+
+    a "..."
+
+    "There she is, staring right back at me."
+
+    p "..."
+
+    p "Poppie..."
+
+    Poppie "..."
+
+    show a calm
+
+    "Upon hearing my voice, her frown turns to a warm, cheerful smile."
+
+    Poppie "I missed you."
+
+    p "Welcome back."
+
+    #fade to black
+
+    #music - ice skating
+
+    $ persistent.got_best_ending = True
 
     return
 
