@@ -782,10 +782,113 @@ label choices7_a:
     #scene ice-rink interior
     #with fade
 
+    #music - Poppie's Theme
+
+    Poppie "Sorry that you got hurt. This never would have happened if I hadn’t asked you to come here."
+
+    p "Don’t worry, I’m not all that hurt. It’s not your fault, anyways, it was an accident."
+
+    Poppie "..."
+
+    show Poppie
+
+    Poppie "..."
+
+    Poppie "Way to keep your cool back there."
+
+    p "What do you mean?"
+
+    Poppie "You could’ve yelled at that skater, or made a scene. It was a tense situation, afterall."
+
+    p "Like I said, it was an accident, and mistakes happen."
+
+    Poppie "I know. I just think you handled it well. I wasn’t sure how you would react after you tensed up."
+
+    p "Hah, am I that much of an open book?"
+
+    show Poppie smile
+
+    Poppie "A little."
+
+    p "...Heh."
+
+    "I couldn’t help but make a faint smile at the revelation."
+
+    jump choices7_common
+
 label choices7_b:
+    "...!"
+
+    "The right words can’t seem to get out of my mouth."
+
+    #scene ice-rink interior
+
+    #music - ice skating
+
+    show Poppie cheery
+
+    Poppie "Don’t worry about it sir. Just be careful next time!"
+
+    "Skater" "Of course, ma’am."
+
+    "The skater skated away."
+
+    show Poppie sad
+
+    Poppie "..."
+
+    #scene ice-rink interior
+    #with fade
+
+    #music - Poppie's Theme
+
+    Poppie "Sorry that you fell over, it’s my fault that all this happened."
+
+    p "Don’t worry about it, it’s not your fault at all."
+
+    Poppie "..."
+
+    show Poppie sad
+
+    Poppie "You wanted to yell at them, didn't you?"
+
+    p "You could tell?"
+
+    Poppie "It was written all over your face."
+
+    "I let out a quiet sigh."
+
+    p "Am I that much of an open book?"
+
+    show Poppie smile
+
+    Poppie "A little."
+
+    p "..."
+
+    Poppie "I would probably wanna give that guy a piece of my mind too if I was you!"
+
+    "I couldn’t help but make a faint smile at her response."
+
+    jump choices7_common
 
 label choices7_common:
+    #music - afternoon
 
+    scene beach sunset
+    with fade
+
+    "The two of us walk back to the beach together."
+
+    show Poppie
+
+    Poppie "Well, that was a wild experience today!"
+
+    p "I’ll say."
+
+    show Poppie smile
+
+    Poppie "I’m glad you gave learning how to ice skate a shot."
 
 
 
