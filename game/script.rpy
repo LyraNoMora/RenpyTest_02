@@ -3,11 +3,11 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("Protagonist", color="#C47A2A", window_background=Image("gui/textbox_player.png", xalign=0.5, yalign=1.0))
-define Poppie = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
-define g = Character("Girl", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
-define a = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
-define s = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define p = Character("Protagonist", color="#C47A2A", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
+define Poppie = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
+define g = Character("Girl", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
+define a = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
+define s = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 
 # Define images
 

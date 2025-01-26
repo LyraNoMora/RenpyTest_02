@@ -396,7 +396,7 @@ screen main_menu():
     add gui.main_menu_background at cinematic_thingy(0):
         xpos 0.5 ypos 0.5
 
-    $ override_best_ending = True
+    $ override_best_ending = False
 
     # Silhouette
     if persistent.got_best_ending or override_best_ending:
