@@ -4,15 +4,20 @@
 
 init offset = -1
 
-transform pop_in(index):
-    xzoom 0 yzoom 0
-    pause index * 0.05
-    easein_back 0.25 xzoom 1.0 yzoom 1.0
+transform pop_in(delay):
+    xzoom 0 yzoom 0 
+    pause delay * 0.05
+    easein_back 0.25 xzoom 1.0 yzoom 1.0 
+
+transform fade_in(delay):
+    blur 50 alpha 0
+    pause delay * 0.05
+    easein 0.25 blur 0 alpha 1.0
 
 transform zoom_effect(delay = 0):
-    zoom 0.5 alpha 0.0
+    zoom 0.5 alpha 0.0 blur 50
     pause delay * 0.05
-    easein_back 0.5 zoom 1.0 alpha 1.0
+    easein_back 0.5 zoom 1.0 alpha 1.0 blur 0
     
     on hover, selected_hover:
         easein_back 0.3 zoom 1.1   
@@ -25,6 +30,13 @@ transform cinematic_thingy(delay = 0):
     zoom 2.5 alpha 0 blur 50 rotate -45 xoffset 190 yoffset 60
     pause delay * 0.05
     easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
+        
+# Same as above but no rotation
+transform cinematic_thingy_2(delay = 0):
+    xanchor 0.5 yanchor 0.5 transform_anchor True
+    zoom 2.5 alpha 0 blur 50 xoffset 190 yoffset 60
+    pause delay * 0.05
+    easein 3 alpha 1 zoom 1 blur 0 xoffset 0 yoffset 0
 
 ################################################################################
 ## Styles
@@ -127,11 +139,11 @@ screen say(who, what):
                 id "namebox"
                 style "namebox"
                 text who id "who":
-                    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+                    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
         text what id "what":
             color "#1f1f1f"
-            outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+            outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -264,7 +276,7 @@ style quick_button:
 style quick_button_text:
     properties gui.text_properties("quick_button")
     size 20
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 
 ################################################################################
@@ -293,18 +305,18 @@ screen navigation():
         spacing 0
 
         # Main menu
-        if main_menu:
+        if main_menu:            
             textbutton _("Start") action Start() at zoom_effect(63):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Load") action ShowMenu("load") at zoom_effect(66):
+            textbutton _("Load") action ShowMenu("load") at zoom_effect(64):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
 
-            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(69):
+            textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(65):
                 text_xalign 0.5
                 text_yalign 1.0
                 background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
@@ -336,6 +348,11 @@ screen navigation():
                 text_yalign 1.0
                 background Image( "gui/pause/home.png", xalign=0.5, yalign=0.5)
          
+    if main_menu:
+        textbutton "Credits" action ShowMenu("credits") at zoom_effect(65):
+            xalign 1.0
+            yalign 0
+            style "quick_button"
 
 style navigation_button is gui_button
 style navigation_button_text is gui_button_text
@@ -351,7 +368,7 @@ style navigation_button_text:
     properties gui.text_properties("navigation_button")
     size 28
     color "#1f1f1f"
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 ## Pause screen ############################################################
 ##
@@ -367,7 +384,7 @@ screen pause_menu():
 
     use navigation
     
-    text "Paused" xalign 0.5 yalign 0.15:
+    text "Paused":
         style "game_menu_heading"
 
     textbutton _("< Return"):
@@ -375,12 +392,14 @@ screen pause_menu():
         action Return()
 
 style game_menu_heading:
+    xalign 0.5 
+    yalign 0.12
     size 48
     color "#71acea"
     outlines [(absolute(16), "#ffffff", absolute(0), absolute(0))]
 
 style game_menu_return_button_text is gui_button_text:
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 ## Main Menu screen ############################################################
 ##
@@ -402,7 +421,7 @@ screen main_menu():
     if persistent.got_best_ending or override_best_ending:
         add "gui/poppie_silhouette_2.png" at cinematic_thingy(10):
             xpos 0.5 ypos 0.5 xoffset 40
-        add "gui/lens_flare.png" at cinematic_thingy(0):
+        add "gui/lens_flare.png" at cinematic_thingy_2(0):
             xpos 0.5 ypos 0.5
     else:
         add "gui/poppie_silhouette_1.png" at cinematic_thingy(10):
@@ -474,8 +493,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     if main_menu:
         add gui.main_menu_background
-    else:
-        add gui.game_menu_background
+   
+    add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -530,7 +549,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             style "return_button"
             action ShowMenu("pause_menu")
 
-    label title
+    text title xalign 0.5 yalign 0.15:
+        style "game_menu_heading"
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -546,26 +566,27 @@ style game_menu_scrollbar is gui_vscrollbar
 style game_menu_label is gui_label
 style game_menu_label_text is gui_label_text
 
-style return_button is navigation_button
-style return_button_text is navigation_button_text
-
+style return_button is gui_button
+style return_button_text is gui_button_text:
+    size 24
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 style game_menu_outer_frame:
-    bottom_padding 40
-    top_padding 120
+    bottom_padding 45
+    top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    # background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
     yfill True
 
 style game_menu_content_frame:
-    left_margin 130
-    right_margin 80
+    left_margin 160
+    right_margin 10
     top_margin 15
 
 style game_menu_viewport:
-    xsize 1080
+    xsize 900
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
@@ -574,7 +595,7 @@ style game_menu_side:
     spacing 15
 
 style game_menu_label:
-    xpos 75
+    xalign 0.5
     ysize 180
 
 style game_menu_label_text:
@@ -586,7 +607,6 @@ style return_button:
     xalign 0
     xoffset 40
     yalign 1.0
-    yoffset -20
 
 
 ## About screen ################################################################

@@ -99,7 +99,7 @@ screen choice(items):
             xysize (400, 400)
             padding (50, 50) 
             action val.action 
-            at bounce_update(idx), pop_in(idx)
+            at bounce_update(idx), pop_in(idx), fade_in(idx)
 
     timer 0.016 repeat True action Function(update_bouncing_bubbles)
 
@@ -107,7 +107,7 @@ screen choice(items):
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text:
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 
 style choice_vbox:
     xalign 0.5
