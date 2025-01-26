@@ -581,8 +581,8 @@ style game_menu_navigation_frame:
     yfill True
 
 style game_menu_content_frame:
-    left_margin 160
-    right_margin 10
+    left_margin 100
+    right_margin 100
     top_margin 15
 
 style game_menu_viewport:

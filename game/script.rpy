@@ -2020,7 +2020,6 @@ label Good_End:
     "I can’t believe what I’m looking at."
 
     scene beach sunset
-    with fade
 
     show a sad
 
@@ -2041,6 +2040,8 @@ label Good_End:
     show a neutral
 
     "Upon hearing my voice, her frown turns to a warm, cheerful smile."
+
+    scene the_true_hug with fade
 
     Poppie "I missed you."
 
