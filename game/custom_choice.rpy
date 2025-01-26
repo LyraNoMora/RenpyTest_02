@@ -112,7 +112,7 @@ screen choice(items):
 style choice_vbox is vbox
 style choice_button is button
 style choice_button_text is button_text:
-    outlines [(absolute(2), "#000", absolute(0), absolute(0))]
+    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 style choice_vbox:
     xalign 0.5
