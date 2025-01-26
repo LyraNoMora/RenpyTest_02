@@ -624,12 +624,169 @@ label choices6_common:
     Poppie "Well anyways, let’s get going! I’ll lead the way!"
 
     #scene ice_rink interior
+    #with fade
 
     Poppie "How are those shoes?"
 
     p "A little tight? Don’t they have a bigger size here?"
 
     Poppie "Perfect, you’re ready to go, c’mon!"
+
+    #scene ice_rink interior
+    #with fade
+
+    "As I step out onto the rink, the ice is slippier than I remember."
+
+    p "So… How does one skate again?"
+
+    Poppie "Just lean your body forward, push your legs forward and out, and glide!"
+
+    p "Like this? WOAAAH!"
+
+    show Poppie moveoutleft
+
+    #shake screen
+
+    "*CRASH*"
+
+    "Apparently, not like that."
+
+    "I fell over."
+
+    p "Ouch..."
+
+    show Poppie smile
+
+    Poppie "Looks like someone forgot to lean forward, silly!"
+
+    p "Well, it’s a lot harder to balance than it looks."
+
+    Poppie "Heehee, here, let me help you up!"
+
+    "Poppie reached out her hand for me."
+
+    show Poppie surprised
+
+    "WA-WAAAH!"
+
+    show Poppie moveoutdown
+
+    "*CRASH*"
+
+    show Poppie sad
+
+    Poppie "WA-WAAAH!"
+
+    "Who’s the silly one now?"
+
+    Poppie "..."
+
+    show Poppie surprised
+
+    Poppie "Huh?"
+
+    "In an instant, Poppie’s smile dissipates, replaced with a curious, childlike expression."
+
+    show Poppie smile
+
+    Poppie "Wow! Look at that!"
+
+    "I look around and notice that there’s bits of snow slowly falling from the ceiling."
+
+    p "Wait, is this real snow?"
+
+    show Poppie
+
+    Poppie "Heehee, take a closer look, why don’t you?"
+
+    "As she requested, I took a closer look at the “snow”."
+
+    p "Wait, these are-!"
+
+    Poppie "That’s right, they’re bubbles!"
+
+    p "I see. Quite a creative way to make fake snow."
+
+    show Poppie cheery
+
+    Poppie "Hahaha!"
+
+    "Poppie seemed to have been enjoying this quite a lot."
+
+    "I couldn’t help but laugh with her."
+
+    #scene ice-rink interior
+    #with fade
+
+    "The two of us get up and continue skating together."
+
+    "After a bit of guidance from Poppie, I’m able to keep my balance."
+
+    show Poppie
+
+    Poppie "See, look at you! You’re a natural!"
+
+    p "Heh, yeah I guess."
+
+    #add music here
+
+    Poppie "Woah- HEY! WATCH OUT-"
+
+    show Poppie moveoutleft
+
+    "*CRASH*"
+
+    "It seems like another skater wasn’t paying attention and ran into me."
+
+    "Skater" "Ugh, that was careless of me."
+
+    "Skater" "Hey, sorry about that! Are you okay?"
+
+    #add music - clouded
+
+    #scene ice-rink red tint
+menu:
+    "Watch where you are going!":
+        jump choices7_b
+    "Learn how to skate!":
+        jump choices7_b
+    "Do I look okay to you?":
+        jump choices7_b
+    "What the heck!":
+        jump choices7_b
+    "Get outta’ my way!":
+        jump choices7_b
+    "You skate like an amateur!":
+        jump choices7_b
+    "All good, no worries!":
+        jump choices7_a
+
+label choices7_a:
+    $ relationship += 1
+    "...!"
+
+    "The right words can’t seem to get out of my mouth."
+
+    #scene ice-rink interior
+
+    #music - ice skating
+
+    show Poppie cheery
+
+    Poppie "Don’t worry about it sir. Just be careful next time!"
+
+    "Skater" "Of course, ma’am."
+
+    "The skater skated away."
+
+    #scene ice-rink interior
+    #with fade
+
+label choices7_b:
+
+label choices7_common:
+
+
 
 
 
