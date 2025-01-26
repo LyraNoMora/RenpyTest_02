@@ -8,6 +8,7 @@ define Poppie = Character("Poppie", color="#E550BF", window_background=Image("gu
 define g = Character("Girl", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 define a = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 define s = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
+define AutomatedVoice = Character("Automated Voice", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 
 # Define images
 
@@ -75,6 +76,8 @@ label start:
     # These display lines of dialogue.
 
     $ relationship = 0
+
+    play music "music/Poppie_s Theme.mp3"
 
     "The same walk home is always accompanied by the cool ocean breeze."
 
@@ -201,6 +204,8 @@ label choices1_common:
     scene beach sunset
     with dissolve
 
+    play music "music/Afternoon.mp3"
+
     show Poppie neutral
 
     Poppie "Hey, may I ask you something?"
@@ -290,6 +295,8 @@ label choices1_common:
 
     scene beach day
     with fade
+
+    play music "music/Morning.mp3"
 
     "I show up back at the beach at 11am."
 
@@ -408,6 +415,8 @@ label choices2_common:
 
     "Clerk" "Hello, what may I get you?"
 
+    play music "music/Clouded.mp3"
+
     #show restaurant red tint
 menu:
     "What if I order wrong?":
@@ -423,6 +432,8 @@ label choices5_common:
 
     scene restaurant day
     with fade
+
+    play music "music/Morning.mp3"
 
     show Poppie sad
 
@@ -443,6 +454,8 @@ label choices5_common:
 
     scene beach sunset
     with dissolve
+
+    play music "music/Afternoon.mp3"
 
     show Poppie
 
@@ -479,10 +492,14 @@ label choices5_common:
 
     "As fast I could, I pulled out my phone and dialed her number."
 
+    play sound "sfx/Phone Ring.mp3"
+
     "*BEEP*"
 
     if relationship < 2:
         p "C’mon…"
+
+    play sound "sfx/Phone Ring.mp3"
 
     "*BEEP*"
 
@@ -490,6 +507,8 @@ label choices5_common:
         p "Pick up!"
 
     p "..."
+
+    play sound "sfx/Phone Clicking.mp3"
 
     "*CLICK*"
 
@@ -500,6 +519,8 @@ label choices5_common:
     p "Poppie, I-"
 
     Poppie "Unfortunately, I’m not available at this moment to pick-up my phone, please leave a message after the beep!"
+
+    play sound "sfx/Phone Ring.mp3"
 
     "*BEEP*"
 
@@ -516,6 +537,8 @@ label choices5_common:
     #show apartment night
     #with fade
 
+    play music "music/Leaving.mp3"
+
     "What a weird day. Definitely not something I would have planned myself."
 
     "My routine was thrown off, that’s for sure."
@@ -528,6 +551,9 @@ label choices5_common:
 
     #show apartment red tint
     #with fade
+
+    play music "music/Clouded.mp3"
+
 menu:
     "Is tomorrow too soon to hang out again?":
         jump choices4_b
@@ -541,11 +567,15 @@ menu:
 label choices4_a:
     $ relationship += 1
 
+    stop music
+
     p "..."
     
     Poppie "Heyyo!"
     
     "She picked up!"
+
+    play music "music/Joy.mp3"
     
     p "Yo, how’s it hanging?"
     
@@ -561,15 +591,21 @@ label choices4_a:
     jump choices4_common
 
 label choices4_b:
+    stop music
+
     p "..."
 
     "Yeah, maybe it’s best if I don’t."
+
+    play sound "sfx/Phone Call.ogg"
 
     "*RIIING RIIING*"
 
     "...?"
 
     "My phone’s ringing."
+
+    play sound "sfx/Phone Clicking.mp3" 
 
     "*CLICK*"
 
@@ -578,6 +614,8 @@ label choices4_b:
     Poppie "Thank goodness it’s you!"
 
     p "Huh?"
+
+    play music "music/Joy.mp3"
 
     Poppie "Well, I gave you my number, but I never got yours!"
 
@@ -614,6 +652,8 @@ label choices4_common:
 
     show beach day
     with fade
+
+    play music "music/Morning.mp3"
 
     "Morning came pretty fast, and next thing I know, I’m waiting for Poppie at the same spot."
 
@@ -653,6 +693,8 @@ label choices6_common:
     #scene ice_rink interior
     #with fade
 
+    play music "music/Ice Skating.mp3"
+
     Poppie "How are those shoes?"
 
     p "A little tight? Don’t they have a bigger size here?"
@@ -673,6 +715,8 @@ label choices6_common:
     show Poppie moveoutleft
 
     #shake screen
+
+    play sound "sfx/Crash.ogg"
 
     "*CRASH*" with vpunch
 
@@ -697,6 +741,8 @@ label choices6_common:
     "WA-WAAAH!"
 
     show Poppie moveoutdown
+
+    play sound "sfx/Crash.ogg"
 
     "*CRASH*"
 
@@ -755,13 +801,17 @@ label choices6_common:
 
     p "Heh, yeah I guess."
 
-    #add music here
+    stop music
 
     Poppie "Woah- HEY! WATCH OUT-"
 
     show Poppie moveoutleft
 
+    play sound "sfx/Crash2.ogg"
+
     "*CRASH*"
+
+    play sound "sfx/Crash.ogg"
 
     "It seems like another skater wasn’t paying attention and ran into me."
 
@@ -769,9 +819,10 @@ label choices6_common:
 
     "Skater" "Hey, sorry about that! Are you okay?"
 
-    #add music - clouded
-
     #scene ice-rink red tint
+
+    play music "music/Clouded.mp3"
+
 menu:
     "Watch where you are going!":
         jump choices7_b
@@ -792,7 +843,7 @@ label choices7_a:
 
     #scene ice-rink interior
 
-    #music - ice skating
+    play music "music/Ice Skating.mp3"
 
     show Poppie cheery
 
@@ -805,7 +856,7 @@ label choices7_a:
     #scene ice-rink interior
     #with fade
 
-    #music - Poppie's Theme
+    play music "music/Poppie_s Theme.mp3"
 
     Poppie "Sorry that you got hurt. This never would have happened if I hadn’t asked you to come here."
 
@@ -845,8 +896,8 @@ label choices7_b:
     "The right words can’t seem to get out of my mouth."
 
     #scene ice-rink interior
-
-    #music - ice skating
+    
+    play music "music/Ice Skating.mp3"
 
     show Poppie cheery
 
@@ -863,7 +914,7 @@ label choices7_b:
     #scene ice-rink interior
     #with fade
 
-    #music - Poppie's Theme
+    play music "music/Poppie_s Theme.mp3"
 
     Poppie "Sorry that you fell over, it’s my fault that all this happened."
 
@@ -896,10 +947,10 @@ label choices7_b:
     jump choices7_common
 
 label choices7_common:
-    #music - afternoon
-
     scene beach sunset
     with fade
+
+    play music "music/Afternoon.mp3"
 
     "The two of us walk back to the beach together."
 
@@ -919,13 +970,15 @@ label choices7_common:
 
     p "Aye aye, captain."
 
-    #music - none
+    stop music
 
     show Poppie
 
     Poppie "..."
 
     show Poppie surprised
+
+    play sound "sfx/Stomach Grumble.mp3"
 
     "*Stomach grumble*"
 
@@ -951,10 +1004,10 @@ label choices7_common:
 
     Poppie "Alright, lead the way!"
 
-    #music - Poppie's Theme
-
     #scene apartment night
     #with fade
+
+    play music "music/Poppie_s Theme.mp3"
 
     "The two of us arrived back at my apartment."
 
@@ -1114,7 +1167,8 @@ label choices7_common:
 
     Poppie "After all, every bubble has to pop."
 
-    #music - Poppie's Clouded
+    play music "music/Clouded.mp3"
+
 menu:
     "Wait, please stay!":
         jump choices8_common
@@ -1129,7 +1183,7 @@ menu:
 label choices8_common:
     p "..."
 
-    #music - Poppie's Theme
+    play music "music/Poppie_s Theme.mp3"
 
     show Poppie smile
 
@@ -1145,7 +1199,7 @@ label choices8_common:
 
     #fade to black
 
-    #music - none
+    stop music
 
     "It’s 2AM, and I’m trying my hardest to sleep but I can’t."
 
@@ -1159,25 +1213,35 @@ label choices8_common:
 
     "Whatever, I might as well give it a shot."
 
+    play sound "sfx/Phone Clicking.mp3"
+
     "*CLICK*"
 
-    "*BEEP*"
+    play sound "sfx/Phone Ring.mp3"
 
     "*BEEP*"
+
+    play sound "sfx/Phone Ring.mp3"
+
+    "*BEEP*"
+    
+    play sound "sfx/Phone Ring.mp3"
 
     "*BEEP*"
 
     p "..."
 
+    play sound "sfx/Phone Clicking.mp3"
+
     "*CLICK*"
 
     p "Poppie? Hey, I-"
 
-    "Automated Voice" "The prepaid phone customer you’re trying to reach is unavailable."
+    AutomatedVoice "The prepaid phone customer you’re trying to reach is unavailable."
 
     "Prepaid phone?"
 
-    #music - sorry
+    play music "music/Sorry.mp3"
 
     "Wait, why would Poppie be using a prepaid phone?"
 
@@ -1264,11 +1328,11 @@ label choices8_common:
     scene beach sunset
     with fade
 
-    #music - none
+    stop music
 
     "I keep waiting, and waiting, but there’s no sign of Poppie anywhere."
 
-    #music - Poppie's Theme
+    play music "music/Poppie_s Theme.mp3"
 
     Poppie "..."
 
@@ -1375,6 +1439,8 @@ label choices8_common:
 
     show Poppie surprised
 
+    play sound "sfx/Pop.mp3"
+
     "*POP*"
 
     Poppie "Woah! How did you do that?"
@@ -1416,7 +1482,7 @@ label choices3_common:
     scene beach sunset
     with fade
 
-    #music afternoon
+    play music "music/Afternoon.mp3"
 
     show Poppie
 
@@ -1488,7 +1554,7 @@ label choices3_common:
 
     Poppie "..."
 
-    #music - sorry
+    play music "music/Sorry.mp3"
 
     show Poppie sad
 
@@ -1582,15 +1648,16 @@ label choices3_common:
 
     #fade to black
 
-    if relationship = 0 or relationship = 1:
+    if relationship == 0 or relationship == 1:
         jump Bad_End
-    if relationship = 2 or relationship = 3:
+    if relationship == 2 or relationship == 3:
         jump Neutral_End
     else:
         jump Good_End
 
 label Bad_End:
-    #music - never again
+    play music "music/Never Again.mp3"
+
     "And that’s the last I heard from her."
 
     "I still have that bottle of bubbles she gave me all those years ago."
@@ -1610,7 +1677,8 @@ label Neutral_End:
     jump Bad_End
 
 label Good_End:
-    #music - never again
+    play music "music/Never Again.mp3"
+
     "Against her wishes, I went to the airport that night."
 
     "I can’t let it end like this."
@@ -1645,7 +1713,7 @@ label Good_End:
 
     "Then, an idea pops into my mind."
 
-    #music - joy
+    play music "music/Joy.mp3"
 
     "I shove my hand in my pocket and pull out the bubble bottle she gave me on the first day."
 
@@ -1730,8 +1798,10 @@ label Good_End:
 
     "..."
 
-    #music - leaving
     #show apartment
+
+    play music "music/Leaving.mp3"
+
     "With Poppie gone, life returned to normal."
 
     scene downtown day
