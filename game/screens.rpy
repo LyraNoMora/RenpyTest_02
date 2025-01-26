@@ -8,6 +8,11 @@ transform zoom_effect(delay = 0):
     zoom 0.5 alpha 0.0
     pause delay * 0.03
     easein_back 0.5 zoom 1.0 alpha 1.0
+    
+    on hover, selected_hover:
+        easein_back 0.3 zoom 1.1   
+    on idle, selected_idle:
+        easein_back 0.3 zoom 1.0
 
 ################################################################################
 ## Styles
@@ -263,8 +268,8 @@ screen navigation():
 
         xcenter 0.5
         ycenter 0.5
+        spacing 16
 
-        spacing 20
         # Main menu
         if main_menu:
             textbutton _("Start") action Start() at zoom_effect(0) xalign 0.5
@@ -275,28 +280,28 @@ screen navigation():
         else:
             textbutton _("History") action ShowMenu("history") at zoom_effect(4):
                 text_xalign 0.5
-                text_yalign 0.9
-                background Image( "gui/button/pause_menu_idle_background.png")
+                text_yalign 1.0
+                background Image("gui/pause/bubbles.png", xalign=0.5, yalign=0.5)
                 
             textbutton _("Save") action ShowMenu("save") at zoom_effect(2):
                 text_xalign 0.5
-                text_yalign 0.9
-                background Image( "gui/button/pause_menu_idle_background.png")
+                text_yalign 1.0
+                background Image( "gui/pause/heart.png", xalign=0.5, yalign=0.5)
 
             textbutton _("Load") action ShowMenu("load") at zoom_effect(0):
                 text_xalign 0.5
-                text_yalign 0.9
-                background Image( "gui/button/pause_menu_idle_background.png")
+                text_yalign 1.0
+                background Image( "gui/pause/boba.png", xalign=0.5, yalign=0.5)
 
             textbutton _("Prefs") action ShowMenu("preferences") at zoom_effect(2):
                 text_xalign 0.5
-                text_yalign 0.9
-                background Image( "gui/button/pause_menu_idle_background.png")
+                text_yalign 1.0
+                background Image("gui/pause/gumball.png", xalign=0.5, yalign=0.5)
 
             textbutton _("Main Menu") action MainMenu() at zoom_effect(4):
                 text_xalign 0.5
-                text_yalign 0.9
-                background Image( "gui/button/pause_menu_idle_background.png")
+                text_yalign 1.0
+                background Image( "gui/pause/home.png", xalign=0.5, yalign=0.5)
          
 
 style navigation_button is gui_button
@@ -305,7 +310,7 @@ style navigation_button_text is gui_button_text
 style navigation_button:
     xcenter 0.5
     ycenter 0.5
-    xysize (200, 200)
+    xysize (220, 220)
     size_group "navigation"
     properties gui.button_properties("navigation_button")
 
@@ -329,18 +334,17 @@ screen pause_menu():
 
     use navigation
     
-    label "Paused" xalign 0.5
+    text "Paused" xalign 0.5 yalign 0.15:
+        style "game_menu_heading"
 
     textbutton _("< Return"):
         style "return_button"
-        xalign 0.05
-        yalign 0.95
         action Return()
 
 style game_menu_heading:
     size 48
-    color "#000000"
-    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
+    color "#71acea"
+    outlines [(absolute(16), "#ffffff", absolute(0), absolute(0))]
 
 style game_menu_return_button_text is gui_button_text:
     outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
@@ -531,9 +535,10 @@ style game_menu_label_text:
     yalign 0.5
 
 style return_button:
-    xpos gui.navigation_xpos
+    xalign 0
+    xoffset 40
     yalign 1.0
-    yoffset -45
+    yoffset -20
 
 
 ## About screen ################################################################
