@@ -4,8 +4,8 @@
 # name of the character.
 
 define p = Character("Protagonist", color="#C47A2A", window_background=Image("gui/textbox_player.png", xalign=0.5, yalign=1.0))
-define Poppie = Character("Poppie", color="#3074C4", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
-define g = Character("Girl", color="#3074C4", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define Poppie = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define g = Character("Girl", color="#E550BF", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
 
 # Define images
 
@@ -1186,15 +1186,283 @@ label choices8_common:
 
     #fade to black
 
+    scene beach day
+    with fade
 
+    "I woke up the next day, and immediately went to the beach."
 
+    "I’m not sure why. It’s not like she invited me again."
 
+    "I guess this felt like the only way to see her again."
 
+    p "..."
 
+    "And so I waited."
 
+    scene beach day
+    with fade
 
-    show beach sunset
+    "I hear a neighborhood dog barking from afar."
+
+    "I wonder what it’s barking at."
+
+    scene beach day
+    with fade
+
+    "An ambulance drives by."
+
+    "They seem to be in a hurry, there must be an emergency somewhere."
+
+    scene beach day
+    with fade
+
+    "Two kids run around on the beach together. One of the trips and falls into the sand."
+
+    "Usually I’d laugh at that, but I don’t seem to have the willpower to do so."
+
+    scene beach day
+    with fade
+
+    "When was the last time I ate?"
+
+    "I feel like I should be hungry for standing here for so long."
+
+    "Yet I can’t get myself to budge from this spot."
+
+    scene beach day
+    with fade
+
+    "Some seagulls fly by."
+
+    "They’re all flying in parallel to each other."
+
+    "They certainly do look pretty together."
+
+    scene beach sunset
+    with fade
+
+    #music - none
+
+    "I keep waiting, and waiting, but there’s no sign of Poppie anywhere."
+
+    #music - Poppie's Theme
+
+    Poppie "..."
+
+    Poppie "Hey, whatcha doin? You’ve been standing there for quite a while."
+
+    p "Poppie!"
+
+    show Poppie surprised
+
+    Poppie "Y-yes?!"
+
+    p "Oh thank god, I’m so happy to see you!"
+
+    Poppie "Oh?! Why, what’s up?"
+
+    p "Forget about it, I’m just overjoyed that you’re here!"
+
+    Poppie "O-okay?"
+
+    "Poppie looks rather flustered to see me right now."
+
+    "Who would blame her? I look like an insane person right now."
+
+    "During my excitement, I noticed something in her hand."
+
+    p "Oh, what’s that you got there?"
+
+    show Poppie
+
+    Poppie "This is a bubble gun!"
+
+    p "A bubble... gun?"
+
+    show Poppie cheery
+
+    Poppie "Yup, it automatically blows bubbles with a push of a button!"
+
+    Poppie "Certainly more convenient than blowing it yourself, that’s for sure!"
+
+    show Poppie smile
+
+    Poppie "Wanna test it out?"
+
+    p "You bet!"
+
+    #fade to black
+
+    scene beach sunset
+
+    "The two of us mess around with the bubble gun for a while."
+
+    "Minutes passed, possibly even hours, but I didn’t care, I was having the time of my life."
+
+    show Poppie sad
+
+    Poppie "Aw..."
+
+    p "What’s wrong? Why’d you stop the bubbles?"
+
+    Poppie "The bubble gun’s out of soap."
+
+    p "You know, there are other ways to make bubbles."
+
+    show Poppie surprised
+
+    Poppie "What? How?"
+
+    p "Give me a second."
+
+    "I immediately dash to a nearby corner store to pick something up."
+
+    scene beach sunset
+    with fade
+
+    show Poppie sad
+
+    p "We'll use this."
+
+    "I hand Poppie a packet."
+
+    Poppie "What is this?"
+
+    p "Bubble gum."
+
+    Poppie "It says \“Hubba Bubba\” on it."
+
+    p "Just take one and pop it in your mouth."
+
+    Poppie "Alright."
+
+    show Poppie serious
+
+    "Poppie took one and observed it for a bit."
+
+    p "What’re you waiting for? It’s not gonna poison you or anything."
+
+    "After hearing me, Poppie immediately shoved it in her mouth."
+
+    show Poppie
+
+    Poppie "So how are we going to make bubbles with Hubba Bubba?"
+
+    p "Like this."
+
+    show Poppie surprised
+
+    "*POP*"
+
+    Poppie "Woah! How did you do that?"
+menu:
+    "You can just flatten it on your tongue, and blow.":
+        jump choices3_common
+    "Latch it to the tip of your tongue, then blow on it.":
+        jump choices3_common
+    "Just YOLO it.":
+        jump choices3_common
+
+label choices3_common:
+    show Poppie smile
+    
+    Poppie "Okay, I’ll try!"
+
+    show Poppie serious
+
+    "Poppie tries to blow as hard as possible."
+
+    "Suddenly the gum shoots out of her mouth."
+
+    show Poppie surprised
+
+    Poppie "...!"
+
+    "And her gum landed on my face."
+
+    p "..."
+
+    Poppie "..."
+
+    p "Maybe that’s enough bubble blowing for today."
+
+    show Poppie cheery
+
+    "We both fall into a fit of laughter."
+
+    scene beach sunset
+    with fade
+
+    #music afternoon
+
+    show Poppie
+
+    Poppie "Can I ask you a question?"
+
+    p "I assume you’re not gonna take “no” for an answer?"
+
+    show Poppie cheery
+
+    Poppie "Heehee!"
+
+    show Poppie
+
+    Poppie "..."
+
+    Poppie "Why are you so afraid to talk to people?"
+
+    p "..."
+
+    Poppie "I noticed this when you talked to the boba shop clerk, and when that guy at the ice skating rink ran into you."
+
+    p "..."
+
+    p "I guess I’m just worried about how people will judge me."
+
+    Poppie "..."
+
+    show Poppie looking away neutral
+
+    Poppie "Hmph."
+
+    p "...?"
+
+    Poppie "I’m not a confident person myself too, you know?"
+
+    p "You? But you’re so-"
+
+    Poppie "\“Outgoing\”? Please, if only."
+
+    Poppie "I’m afraid of what people think of me too."
+
+    Poppie "Do you know how much courage it took for me to ask you if you wanted to hang out again when we first met?"
+
+    p "..."
+
+    show Poppie calm smile
+
+    Poppie "I was so afraid at the time that you’d say \“No.\”"
+
+    p "..."
+
+    Poppie "Even now, I’m worried about what you think of me."
+
+    p "That’s not-! You shouldn’t, I-!"
+
+    show Poppie looking away neutral
+
+    Poppie "Are you disappointed that I’m not the person you thought I was?"
+
+    p "..."
+
+    Poppie "..."
+
+    p "Can I say something?"
+
+    show Poppie calm smile
     
     call screen the_big_question()
+
+    
 
     return
