@@ -1559,6 +1559,21 @@ label choices3_common:
 
     #fade to black
 
+    if relationship = 0 or relationship = 1:
+        jump Bad_End
+    else if relationship = 2 or relationship = 3:
+        jump Neutral_End
+    else:
+        jump Good_End
+
+label Bad_End:
+    return
+
+label Neutral_End:
+    jump Bad_End
+
+label Good_End:
+    return
 
 
     return
