@@ -379,7 +379,7 @@ screen pause_menu():
 
     use navigation
     
-    text "Paused" xalign 0.5 yalign 0.15:
+    text "Paused":
         style "game_menu_heading"
 
     textbutton _("< Return"):
@@ -387,6 +387,8 @@ screen pause_menu():
         action Return()
 
 style game_menu_heading:
+    xalign 0.5 
+    yalign 0.12
     size 48
     color "#71acea"
     outlines [(absolute(16), "#ffffff", absolute(0), absolute(0))]
@@ -486,8 +488,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     if main_menu:
         add gui.main_menu_background
-    else:
-        add gui.game_menu_background
+   
+    add gui.game_menu_background
 
     frame:
         style "game_menu_outer_frame"
@@ -542,7 +544,8 @@ screen game_menu(title, scroll=None, yinitial=0.0):
             style "return_button"
             action ShowMenu("pause_menu")
 
-    label title
+    text title xalign 0.5 yalign 0.15:
+        style "game_menu_heading"
 
     if main_menu:
         key "game_menu" action ShowMenu("main_menu")
@@ -558,26 +561,27 @@ style game_menu_scrollbar is gui_vscrollbar
 style game_menu_label is gui_label
 style game_menu_label_text is gui_label_text
 
-style return_button is navigation_button
-style return_button_text is navigation_button_text
-
+style return_button is gui_button
+style return_button_text is gui_button_text:
+    size 24
+    outlines [(absolute(6), "#ffffff", absolute(0), absolute(0))]
 style game_menu_outer_frame:
-    bottom_padding 40
-    top_padding 120
+    bottom_padding 45
+    top_padding 180
 
-    background "gui/overlay/game_menu.png"
+    # background "gui/overlay/game_menu.png"
 
 style game_menu_navigation_frame:
     xsize 420
     yfill True
 
 style game_menu_content_frame:
-    left_margin 130
-    right_margin 80
+    left_margin 160
+    right_margin 10
     top_margin 15
 
 style game_menu_viewport:
-    xsize 1080
+    xsize 900
 
 style game_menu_vscrollbar:
     unscrollable gui.unscrollable
@@ -586,7 +590,7 @@ style game_menu_side:
     spacing 15
 
 style game_menu_label:
-    xpos 75
+    xalign 0.5
     ysize 180
 
 style game_menu_label_text:
@@ -598,7 +602,6 @@ style return_button:
     xalign 0
     xoffset 40
     yalign 1.0
-    yoffset -20
 
 
 ## About screen ################################################################
