@@ -30,6 +30,13 @@ transform cinematic_thingy(delay = 0):
     zoom 2.5 alpha 0 blur 50 rotate -45 xoffset 190 yoffset 60
     pause delay * 0.05
     easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
+        
+# Same as above but no rotation
+transform cinematic_thingy_2(delay = 0):
+    xanchor 0.5 yanchor 0.5 transform_anchor True
+    zoom 2.5 alpha 0 blur 50 xoffset 190 yoffset 60
+    pause delay * 0.05
+    easein 3 alpha 1 zoom 1 blur 0 xoffset 0 yoffset 0
 
 ################################################################################
 ## Styles
@@ -407,7 +414,7 @@ screen main_menu():
     if persistent.got_best_ending or override_best_ending:
         add "gui/poppie_silhouette_2.png" at cinematic_thingy(10):
             xpos 0.5 ypos 0.5 xoffset 40
-        add "gui/lens_flare.png" at cinematic_thingy(0):
+        add "gui/lens_flare.png" at cinematic_thingy_2(0):
             xpos 0.5 ypos 0.5
     else:
         add "gui/poppie_silhouette_1.png" at cinematic_thingy(10):
