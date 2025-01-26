@@ -273,7 +273,7 @@ label choices1_common:
 
     Poppie "Great! Meet me back here, 11am sharp!"
 
-    show Poppie cheery
+    hide Poppie cheery
     with moveoutright
 
     "Poppie immediately begins skipping away."
@@ -469,7 +469,7 @@ label choices5_common:
 
     Poppie "Well, I'll see you around!"
 
-    show Poppie cheery
+    hide Poppie cheery
     with moveoutright
 
     "Poppie skipped away, bouncing further and further down the street."
@@ -708,7 +708,8 @@ label choices6_common:
 
     p "Like this? WOAAAH!"
 
-    show Poppie moveoutleft
+    hide Poppie 
+    with moveoutleft
 
     #shake screen
 
@@ -736,7 +737,8 @@ label choices6_common:
 
     "WA-WAAAH!"
 
-    show Poppie moveoutdown
+    hide Poppie 
+    with moveoutbottom
 
     play sound "sfx/Crash.ogg"
 
@@ -801,7 +803,8 @@ label choices6_common:
 
     Poppie "Woah- HEY! WATCH OUT-"
 
-    show Poppie moveoutleft
+    hide Poppie 
+    with moveoutleft
 
     play sound "sfx/Crash2.ogg"
 
@@ -893,7 +896,7 @@ label choices7_b:
 
     scene ice_rink interior
 
-    #music - ice skating
+    play music "music/Ice Skating.mp3"
 
     show Poppie cheery
 
@@ -1000,8 +1003,8 @@ label choices7_common:
 
     Poppie "Alright, lead the way!"
 
-    #scene apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     play music "music/Poppie_s Theme.mp3"
 
@@ -1017,8 +1020,8 @@ label choices7_common:
 
     p "Hey!"
 
-    #scene apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     "I bring out a pot to boil water."
 
@@ -1054,7 +1057,8 @@ label choices7_common:
 
     p "I fail to see how that evens out."
 
-    show Poppie moveoutright
+    hide Poppie 
+    with moveoutright
 
     "Ignoring my response, she begins cracking open my cabinets to see what I have."
 
@@ -1084,8 +1088,8 @@ label choices7_common:
 
     p "..."
 
-    #scene apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     show Poppie
 
@@ -1115,8 +1119,8 @@ label choices7_common:
 
     Poppie "That’s right, it’s our old friend: bubbles!"
 
-    #scene apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     show Poppie
 
@@ -1132,8 +1136,8 @@ label choices7_common:
 
     Poppie "Just remember what I taught you, and you’ll be golden!"
 
-    #scene apartment night
-    #with fade
+    scene apartment night
+    with fade
 
     show Poppie
 
@@ -1794,7 +1798,7 @@ label Good_End:
 
     "..."
 
-    #show apartment
+    scene apartment night
 
     play music "music/Leaving.mp3"
 
@@ -1840,7 +1844,7 @@ label Good_End:
 
     "As I continue down the road, something catches my eye."
 
-    #music - none 
+    stop music
 
     #a bubble flies by the screen
 
@@ -1852,7 +1856,7 @@ label Good_End:
 
     "I follow the trail and see the source of the floating chaos:"
 
-    #music - reunion
+    play music "music/Reunion.mp3"
 
     show s
 
@@ -1893,7 +1897,7 @@ label Good_End:
 
     #fade to black
 
-    #music - ice skating
+    play music "music/Ice Skating.mp3"
 
     $ persistent.got_best_ending = True
 
