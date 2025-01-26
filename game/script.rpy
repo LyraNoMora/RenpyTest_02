@@ -35,7 +35,6 @@ layeredimage Poppie:
         attribute serious:
             "poppi_serious"
 
-
 layeredimage a:
 
     always:
@@ -57,6 +56,27 @@ layeredimage s:
             "poppi_side_neutral"
         attribute sad:
             "poppi_side_sad"
+
+transform bobble:
+    ease 2.0 yoffset 50
+    ease 2.0 yoffset -50
+    repeat
+
+transform glide_across:
+    xanchor 0.0 xpos 1.0
+    linear 7.0 xanchor 1.0 xpos 0.0
+
+transform drift_up:
+    yanchor 0.0 ypos 0.5
+    linear 7.0 yanchor 1.0 ypos 0.2
+
+label create_bubble(bubble_name):
+    $ random_bubble_zoom = 0.2 + (0.8 * renpy.random.random())
+    $ bubble_image = Image("images/bubble.png")
+    $ zoom_transform = Transform(zoom=random_bubble_zoom)
+    $ renpy.show("bubble", at_list=[bobble, glide_across, drift_up, zoom_transform], tag=bubble_name, what=bubble_image)
+        
+    return
 
 # The game starts here.
 
@@ -87,11 +107,17 @@ label start:
 
     "As I continue down the road, something catches my eye."
 
+    call create_bubble("bubble1")
+
     p "...!"
 
     p "A bubble?"
 
+    call create_bubble("bubble2")
+
     "That’s new. Where are those bubbles coming from?"
+    
+    call create_bubble("bubble3")
 
     "I follow the trail and see the source of the floating chaos:"
 
@@ -1851,25 +1877,27 @@ label Good_End:
 
     stop music
 
-    #a bubble flies by the screen
+    call create_bubble("bubble4")
 
     p "...!"
 
     p "A bubble?"
+    
+    call create_bubble("bubble5")
 
     "That’s new. Where are those bubbles coming from?"
+
+    call create_bubble("bubble6")
 
     "I follow the trail and see the source of the floating chaos:"
 
     play music "music/Reunion.mp3"
 
-    show s
+    show a
 
     g "..."
 
-    #shake screen
-
-    p "Are- Are you-?"
+    p "Are- Are you-?" with hpunch
 
     "I can’t believe what I’m looking at."
 
