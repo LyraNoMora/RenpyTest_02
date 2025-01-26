@@ -1463,6 +1463,30 @@ label choices3_common:
     
     call screen the_big_question()
 
+    Poppie "..."
+
+    #music - sorry
+
+    show Poppie sad
+
+    Poppie "I'm sorry."
+
+    Poppie "Forgive me, but there’s something else I didn’t reveal about myself."
+
+    Poppie "I don’t live here."
+
+    p "...!"
+
+    show Poppie looking away neutral
+
+    Poppie "My family lives far away. I only moved here to take care of my aunt."
+
+    show Poppie sad
+
+    Poppie "..."
+
+    Poppie "She died 3 days ago."
+
     
 
     return
