@@ -859,13 +859,13 @@ style mute_all_button_text is check_button_text
 
 style pref_label:
     top_margin gui.pref_spacing
-    bottom_margin 3
+    bottom_margin 2
 
 style pref_label_text:
     yalign 1.0
 
 style pref_vbox:
-    xsize 338
+    xsize 225
 
 style radio_vbox:
     spacing gui.pref_button_spacing
@@ -888,18 +888,18 @@ style check_button_text:
     properties gui.text_properties("check_button")
 
 style slider_slider:
-    xsize 525
+    xsize 350
 
 style slider_button:
     properties gui.button_properties("slider_button")
     yalign 0.5
-    left_margin 15
+    left_margin 10
 
 style slider_button_text:
     properties gui.text_properties("slider_button")
 
 style slider_vbox:
-    xsize 675
+    xsize 450
 
 
 ## History screen ##############################################################
