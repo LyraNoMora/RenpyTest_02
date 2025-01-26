@@ -3,9 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("Protagonist", color="#C47A2A")
-define Poppie = Character("Poppie", color="#3074C4")
-define g = Character("Girl", color="#3074C4")
+define p = Character("Protagonist", color="#C47A2A", window_background=Image("gui/textbox_player.png", xalign=0.5, yalign=1.0))
+define Poppie = Character("Poppie", color="#3074C4", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
+define g = Character("Girl", color="#3074C4", window_background=Image("gui/textbox_poppie.png", xalign=0.5, yalign=1.0))
 
 # Define images
 
@@ -14,19 +14,19 @@ layeredimage Poppie:
     always:
         "poppie_body"
 
-    group face auto:
-        attribute neutral default:
-            "poppie_neutral"
-        attribute sad:
-            "poppie_sad"
-        attribute smile:
-            "poppie_smile"
-        attribute surprised:
-            "poppie_surprised"
-        attribute cheery:
-            "poppie_cheery"
-        attribute gum:
-            "poppie_gum"
+    # group face auto:
+    #     attribute neutral default:
+    #         "poppie_neutral"
+    #     attribute sad:
+    #         "poppie_sad"
+    #     attribute smile:
+    #         "poppie_smile"
+    #     attribute surprised:
+    #         "poppie_surprised"
+    #     attribute cheery:
+    #         "poppie_cheery"
+    #     attribute gum:
+    #         "poppie_gum"
 
 # The game starts here.
 
