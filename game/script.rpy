@@ -3,9 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define p = Character("Protagonist", color="#32a852")
-define Poppie = Character("Poppie", color="#f0b5d2")
-define g = Character("Girl", color="#f0b5d2")
+define p = Character("Protagonist", color="#C47A2A")
+define Poppie = Character("Poppie", color="#3074C4")
+define g = Character("Girl", color="#3074C4")
 
 # Define images
 
@@ -933,7 +933,262 @@ label choices7_common:
     #scene apartment night
     #with fade
 
-    ""
+    "The two of us arrived back at my apartment."
+
+    "As soon as I flicked the lights on, Poppie started wandering around, observing everything I owned."
+
+    show Poppie
+
+    Poppie "Wow, you said your house was nearby, but I wasn’t expecting it to be this close!"
+
+    Poppie "Guess you have no excuse for being late on the first day, huh?"
+
+    p "Hey!"
+
+    #scene apartment night
+    #with fade
+
+    "I bring out a pot to boil water."
+
+    show Poppie
+
+    Poppie "What are you making?"
+
+    p "Instant noodles."
+
+    show Poppie sad
+
+    Poppie "Really?"
+
+    p "What's wrong?"
+
+    Poppie "Just feels rather bland."
+
+    p "I will not let you sit there and insult instant noodles like that! They are God’s gift to humanity!"
+
+    Poppie "...Right."
+
+    Poppie "..."
+
+    show Poppie
+
+    Poppie "..."
+
+    Poppie "Sit down, let me handle the cooking!"
+
+    p "Are you sure? You are the guest after all."
+
+    Poppie "Well, you’re hosting me, so it’s only fair that I cook."
+
+    p "I fail to see how that evens out."
+
+    show Poppie moveoutright
+
+    "Ignoring my response, she begins cracking open my cabinets to see what I have."
+
+    show Poppie serious
+
+    Poppie "What is this?"
+
+    p "Uncooked noodles."
+
+    Poppie "Why didn't you want to eat this instead?"
+
+    p "Because it’s uncooked."
+
+    Poppie "..."
+
+    p "...And there’s no flavor packet."
+
+    show Poppie sad
+
+    Poppie "You don’t know how to cook, do you?"
+
+    p "..."
+
+    show Poppie
+
+    Poppie "That’s fine, I’ll teach you."
+
+    p "..."
+
+    #scene apartment night
+    #with fade
+
+    show Poppie
+
+    Poppie "Well, first you grab a pot and pour some water in."
+
+    Poppie "Next, you set the stove to high and let the water boil."
+
+    p "..."
+
+    Poppie "..."
+
+    p "So, what do we do next?"
+
+    Poppie "We just wait for it to boil."
+
+    p "How do you know if it’s finished boiling?"
+
+    show Poppie smile
+
+    Poppie "Take a look for yourself!"
+
+    "Poppie points to the water inside."
+
+    "After seeing it, I faintly smile."
+
+    show Poppie
+
+    Poppie "That’s right, it’s our old friend: bubbles!"
+
+    #scene apartment night
+    #with fade
+
+    show Poppie
+
+    Poppie "And with that, you’re ready to serve!"
+
+    p "That easy?"
+
+    show Poppie smile
+
+    Poppie "Yup!"
+
+    p "Wow, if I had known it was that easy, I would have been making this everyday."
+
+    Poppie "Just remember what I taught you, and you’ll be golden!"
+
+    #scene apartment night
+    #with fade
+
+    show Poppie
+
+    Poppie "Sooo full. That was a good meal, if I do say so myself."
+
+    Poppie "Still think instant noodles are God's gift?"
+
+    p "You’re gonna have to try harder if you want to change my mind on that."
+
+    show Poppie smile
+
+    Poppie "Heehee!"
+
+    "I couldn’t help but laugh with her as well."
+
+    show Poppie
+
+    Poppie "Well, I should get going now."
+
+    p "Now? But the night is still young, don’t you want to stay here a bit and hang out?"
+
+    Poppie "I’ve had a lot of fun, and I want to stay, but..."
+
+    Poppie "It will be harder to go if I stay, and I know I’ll have to leave eventually."
+
+    show Poppie calm smile
+
+    Poppie "After all, every bubble has to pop."
+
+    #music - Poppie's Clouded
+menu:
+    "Wait, please stay!":
+        jump choices8_common
+    "Why are you leaving?":
+        jump choices8_common
+    "Did I do something wrong?":
+        jump choices8_common
+    "All good, no worries!":
+        $ relationship += 1
+        jump choices8_common
+
+label choices8_common:
+    p "..."
+
+    #music - Poppie's Theme
+
+    show Poppie smile
+
+    Poppie "Well, I’ll see you around!"
+
+    "With that, she headed out."
+
+    "I watched her leave out the front door."
+
+    "As it closed behind her, I saw her bubble bottle sitting on a shelf nearby."
+
+    p "...Maybe next time."
+
+    #fade to black
+
+    #music - none
+
+    "It’s 2AM, and I’m trying my hardest to sleep but I can’t."
+
+    "I just can’t get Poppie out of my mind."
+
+    "Maybe I should try calling her."
+
+    "But would she even pick up?"
+
+    "She might be asleep during this hour."
+
+    "Whatever, I might as well give it a shot."
+
+    "*CLICK*"
+
+    "*BEEP*"
+
+    "*BEEP*"
+
+    "*BEEP*"
+
+    p "..."
+
+    "*CLICK*"
+
+    p "Poppie? Hey, I-"
+
+    "Automated Voice" "The prepaid phone customer you’re trying to reach is unavailable."
+
+    "Prepaid phone?"
+
+    #music - sorry
+
+    "Wait, why would Poppie be using a prepaid phone?"
+
+    p "Maybe I should visit her, and-"
+
+    p "...!"
+
+    "That’s when I realized."
+
+    "I don’t know this person."
+
+    "How’s that possible?"
+
+    "It’s strange, we’ve hung out for 2 days straight,"
+
+    "And despite only knowing each other for a short period of time, we’ve grown quite close."
+
+    "Yet, it still feels distant."
+
+    "I know nothing about Poppie. Not her residence, her family and friends, or any method of contact other than a prepaid phone number."
+
+    "Is her name even Poppie?"
+
+    p "..."
+
+    "In the end, I was left with only one option."
+
+    p "Poppie..."
+
+    #fade to black
+
+
+
+
 
 
 
