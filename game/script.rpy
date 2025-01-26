@@ -24,7 +24,7 @@ layeredimage Poppie:
         attribute smile:
             "poppi_smile"
         attribute surprised:
-            "poppi_surprise"
+            "poppi_surprised"
         attribute cheery:
             "poppi_cheery"
         attribute calm:
