@@ -674,7 +674,7 @@ label choices6_common:
 
     #shake screen
 
-    "*CRASH*"
+    "*CRASH*" with vpunch
 
     "Apparently, not like that."
 
