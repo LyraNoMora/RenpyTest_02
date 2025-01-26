@@ -1725,6 +1725,9 @@ label Bad_End:
     "But wherever she is..."
 
     "I hope she’s happy."
+    
+    call screen credits
+
     return
 
 label Neutral_End:
@@ -1764,6 +1767,8 @@ label Neutral_End:
     "Nothing, there’s no sign of her."
 
     "Then, from afar..."
+
+    call create_bubble("bubble7")
 
     "A bubble floats by."
 
@@ -1810,6 +1815,9 @@ label Neutral_End:
     "Because before you know it,"
 
     "It could be gone forever."
+    
+    show screen credits
+
     return
 
 label Good_End:
@@ -2044,6 +2052,8 @@ label Good_End:
     play music "music/Ice Skating.mp3"
 
     $ persistent.got_best_ending = True
+
+    show screen credits
 
     return
 

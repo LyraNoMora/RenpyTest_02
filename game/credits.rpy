@@ -4,6 +4,8 @@ transform scroll_up:
 
 screen credits:
 
+    zorder 150
+
     modal True
     
     frame:
@@ -70,7 +72,8 @@ screen credits:
             label ""
             text "This game was made in 24 hours for Global Game Jam 2025."
 
-    timer 30 action Hide("credits", transition=dissolve)
+    # timer 30 action Hide("credits", transition=dissolve)
+    timer 30 action Return()
 
 style credits_text:
     xalign 0.5
