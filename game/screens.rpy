@@ -105,9 +105,12 @@ screen say(who, what):
             window:
                 id "namebox"
                 style "namebox"
-                text who id "who"
+                text who id "who":
+                    outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
-        text what id "what"
+        text what id "what":
+            color "#000000"
+            outlines [(absolute(9), "#ffffff", absolute(0), absolute(0))]
 
 
     ## If there's a side image, display it above the text. Do not display on the

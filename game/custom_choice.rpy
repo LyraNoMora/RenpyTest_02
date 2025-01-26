@@ -29,9 +29,9 @@ init python:
 
         def update(self, dt):
             min_x = BouncingBubble.bubble_radius
-            max_x = 1920 - BouncingBubble.bubble_radius
+            max_x = 1280 - BouncingBubble.bubble_radius
             min_y = BouncingBubble.bubble_radius
-            max_y = 1080 - BouncingBubble.bubble_radius
+            max_y = 720 - BouncingBubble.bubble_radius
 
             self.dx += math.cos(BouncingBubble.wind_angle) * BouncingBubble.wind_strength * dt
             self.dy += math.sin(BouncingBubble.wind_angle) * BouncingBubble.wind_strength * dt
@@ -64,8 +64,8 @@ init python:
     def create_bouncing_bubbles(count):
         objects = []
         for _ in range(count):
-            x = random.uniform(0, 1920)
-            y = random.uniform(0, 1080)
+            x = random.uniform(0, 1280)
+            y = random.uniform(0, 720)
             objects.append(BouncingBubble(x, y))
         return objects
 
