@@ -10,6 +10,7 @@ define a = Character("Poppie", color="#E550BF", window_background=Image("gui/tex
 define s = Character("Poppie", color="#E550BF", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 define AutomatedVoice = Character("Automated Voice", window_background=Image("gui/textbox_with_name.png", xalign=0.5, yalign=1.0))
 
+
 # Define images
 
 layeredimage Poppie:
@@ -135,7 +136,8 @@ label start:
 
     g "Hm?"
 
-    show Poppie
+    hide s neutral
+    show Poppie neutral
 
     "She looks up, directly at my eye."
 
@@ -164,7 +166,7 @@ menu:
 
 label choices1_common:
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "So my bubbles brought you here to me, hm?"
 
@@ -225,7 +227,7 @@ label choices1_common:
     "Things feel easier when your only care in the world is popping as many bubbles as you can."
 
     scene beach sunset
-    with dissolve
+    with fade
 
     play music "music/Afternoon.mp3"
 
@@ -346,7 +348,7 @@ label choices1_common:
     Poppie "Well whatever, let’s get going!"
 
     scene downtown day
-    with fade
+    with dissolve
 
     "We walk for a few minutes, and eventually we arrive downtown."
 
@@ -380,7 +382,7 @@ label choices1_common:
     p "Alright, let’s go check it out! And actually order something this time, yeah?"
  
     scene restaurant
-    with dissolve
+    with fade
 
     show Poppie neutral
 
@@ -468,7 +470,11 @@ label choices5_common:
     scene restaurant
     with dissolve
 
+    show Poppie neutral
+
     p "How’s your drink?"
+
+    show Poppie cheery
 
     Poppie "Very bubbly."
 
@@ -479,7 +485,7 @@ label choices5_common:
 
     play music "music/Afternoon.mp3"
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Well, today was a lot of fun!"
 
@@ -572,7 +578,7 @@ label choices5_common:
     "Maybe I should try and call Poppie again to see if she’d like to hang out tomorrow?"
 
     scene apartment red tint
-    with fade
+    with dissolve
 
     play music "music/Clouded.mp3"
 
@@ -605,6 +611,9 @@ label choices4_a:
     
     Poppie "Oh, I saw your call earlier. Sorry I couldn’t pick up. I was in such a rush that I accidentally left my phone at home today."
     
+    scene apartment night
+    with fade
+
     p "No worries."
 
     Poppie "So, what did you call me earlier for?"
@@ -641,6 +650,9 @@ label choices4_b:
 
     Poppie "Well, I gave you my number, but I never got yours!"
 
+    scene apartment night
+    with fade
+
     p "O-oh, right."
 
     Poppie "I saw I had a missed call from earlier, so I decided to call it and see if it was you!"
@@ -656,8 +668,6 @@ label choices4_b:
     p "Are you, by any chance, busy on the next day? If not, if you would like to wanna meet up somewhere out?"
 
 label choices4_common:
-    scene apartment night
-
     Poppie "Sure, I’d love to! Maybe we could go to the ice rink together!"
 
     "The ice rink? But..."
@@ -691,7 +701,7 @@ label choices4_common:
 
     "From the distance, I hear Poppie’s faint voice."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Sorry, were you waiting for a while?"
 menu:
@@ -715,7 +725,7 @@ label choices6_common:
     Poppie "Well anyways, let’s get going! I’ll lead the way!"
 
     scene ice_rink interior
-    with fade
+    with dissolve
 
     play music "music/Ice Skating.mp3"
 
@@ -726,7 +736,7 @@ label choices6_common:
     Poppie "Perfect, you’re ready to go, c’mon!"
 
     scene ice_rink interior
-    with fade
+    with dissolve
 
     "As I step out onto the rink, the ice is slippier than I remember."
 
@@ -738,7 +748,7 @@ label choices6_common:
 
     p "Like this? WOAAAH!"
 
-    hide Poppie 
+    hide Poppie smile
     with moveoutleft
 
     #shake screen
@@ -763,21 +773,21 @@ label choices6_common:
 
     "Poppie reached out her hand for me."
 
+    hide Poppie surprised
+    with moveoutbottom
+
     show Poppie surprised
 
     "WA-WAAAH!"
-
-    hide Poppie 
-    with moveoutbottom
 
     play sound "sfx/Crash.ogg"
 
     "*CRASH*"
 
-    show Poppie sad
-    with moveouttop
-
     Poppie "WA-WAAAH!"
+
+    show Poppie sad
+    with moveinbottom
 
     "Who’s the silly one now?"
 
@@ -797,7 +807,7 @@ label choices6_common:
 
     p "Wait, is this real snow?"
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Heehee, take a closer look, why don’t you?"
 
@@ -818,13 +828,13 @@ label choices6_common:
     "I couldn’t help but laugh with her."
 
     scene ice_rink interior
-    with fade
+    with dissolve
 
     "The two of us get up and continue skating together."
 
     "After a bit of guidance from Poppie, I’m able to keep my balance."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "See, look at you! You’re a natural!"
 
@@ -851,7 +861,8 @@ label choices6_common:
 
     play music "music/Clouded.mp3"
 
-    scene ice-rink red tint
+    scene ice_rink red tint
+    with fade
 
 menu:
     "Watch where you are going!":
@@ -872,6 +883,7 @@ label choices7_a:
     "The right words can’t seem to get out of my mouth."
 
     scene ice_rink interior
+    with fade
 
     play music "music/Ice Skating.mp3"
 
@@ -894,7 +906,7 @@ label choices7_a:
 
     Poppie "..."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "..."
 
@@ -926,6 +938,7 @@ label choices7_b:
     "The right words can’t seem to get out of my mouth."
 
     scene ice_rink interior
+    with fade
 
     play music "music/Ice Skating.mp3"
 
@@ -1002,7 +1015,7 @@ label choices7_common:
 
     stop music
 
-    show Poppie
+    show Poppie 
 
     Poppie "..."
 
@@ -1030,7 +1043,7 @@ label choices7_common:
 
     p "Yeah, my place is pretty close by."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Alright, lead the way!"
 
@@ -1052,7 +1065,7 @@ label choices7_common:
     p "Hey!"
 
     scene apartment night
-    with fade
+    with dissolve
 
     "I bring out a pot to boil water."
 
@@ -1074,8 +1087,6 @@ label choices7_common:
 
     Poppie "...Right."
 
-    Poppie "..."
-
     show Poppie
 
     Poppie "..."
@@ -1094,6 +1105,7 @@ label choices7_common:
     "Ignoring my response, she begins cracking open my cabinets to see what I have."
 
     show Poppie serious
+    with moveinright
 
     Poppie "What is this?"
 
@@ -1113,14 +1125,14 @@ label choices7_common:
 
     p "..."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "That’s fine, I’ll teach you."
 
     p "..."
 
     scene apartment night
-    with fade
+    with dissolve
 
     show Poppie
 
@@ -1151,7 +1163,7 @@ label choices7_common:
     Poppie "That’s right, it’s our old friend: bubbles!"
 
     scene apartment night
-    with fade
+    with dissolve
 
     show Poppie
 
@@ -1222,13 +1234,17 @@ label choices8_common:
 
     "With that, she headed out."
 
+    show Poppie
+    with moveoutright
+
     "I watched her leave out the front door."
 
     "As it closed behind her, I saw her bubble bottle sitting on a shelf nearby."
 
     p "...Maybe next time."
 
-    #fade to black
+    scene apartment night
+    with fade
 
     stop music
 
@@ -1302,10 +1318,8 @@ label choices8_common:
 
     p "Poppie..."
 
-    #fade to black
-
     scene beach day
-    with fade
+    with dissolve
 
     "I woke up the next day, and immediately went to the beach."
 
@@ -1365,8 +1379,6 @@ label choices8_common:
 
     play music "music/Poppie_s Theme.mp3"
 
-    Poppie "..."
-
     Poppie "Hey, whatcha doin? You’ve been standing there for quite a while."
 
     p "Poppie!"
@@ -1409,9 +1421,8 @@ label choices8_common:
 
     p "You bet!"
 
-    #fade to black
-
     scene beach sunset
+    with fade
 
     "The two of us mess around with the bubble gun for a while."
 
@@ -1462,7 +1473,7 @@ label choices8_common:
 
     "After hearing me, Poppie immediately shoved it in her mouth."
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "So how are we going to make bubbles with Hubba Bubba?"
 
@@ -1515,7 +1526,7 @@ label choices3_common:
 
     play music "music/Afternoon.mp3"
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Can I ask you a question?"
 
@@ -1525,7 +1536,7 @@ label choices3_common:
 
     Poppie "Heehee!"
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "..."
 
@@ -1541,7 +1552,8 @@ label choices3_common:
 
     Poppie "..."
 
-    show s
+    hide Poppie neutral
+    show s neutral
 
     s "Hmph."
 
@@ -1559,6 +1571,7 @@ label choices3_common:
 
     p "..."
 
+    hide s
     show Poppie calm
 
     Poppie "I was so afraid at the time that you’d say \“No.\”"
@@ -1569,6 +1582,7 @@ label choices3_common:
 
     p "That’s not-! You shouldn’t, I-!"
 
+    hide Poppie calm
     show s sad
 
     Poppie "Are you disappointed that I’m not the person you thought I was?"
@@ -1579,15 +1593,16 @@ label choices3_common:
 
     p "Can I say something?"
 
+    hide s sad
     show Poppie calm
     
     call screen the_big_question()
 
+    show Poppie sad
+
     Poppie "..."
 
     play music "music/Sorry.mp3"
-
-    show Poppie sad
 
     Poppie "I'm sorry."
 
@@ -1597,10 +1612,12 @@ label choices3_common:
 
     p "...!"
 
-    show s
+    hide Poppie sad
+    show s sad
 
     Poppie "My family lives far away. I only moved here to take care of my aunt."
 
+    hide s sad
     show Poppie sad
 
     Poppie "..."
@@ -1609,6 +1626,7 @@ label choices3_common:
 
     p "Poppie… I’m so sorry."
 
+    hide Poppie sad
     show s sad
 
     Poppie "That’s when I decided that I need to get my mind off it by going outside. I found that bubble bottle in her house."
@@ -1617,6 +1635,7 @@ label choices3_common:
 
     Poppie "It didn’t help."
 
+    hide s sad
     show Poppie calm
 
     Poppie "..."
@@ -1627,7 +1646,7 @@ label choices3_common:
 
     Poppie "You gave me the break I needed."
 
-    Poppie "Someone you listened to my weird ramblings."
+    Poppie "Someone who listened to my weird ramblings."
 
     Poppie "Someone who took a chance on me."
 
@@ -1635,7 +1654,8 @@ label choices3_common:
 
     Poppie "You saved me."
 
-    show s neutral
+    hide Poppie calm
+    show s sad
 
     Poppie "..."
 
@@ -1659,6 +1679,7 @@ label choices3_common:
 
     p "Is there anything I could do to make you stay?"
 
+    hide s neutral
     show Poppie calm
 
     Poppie "I’m so sorry, but my flight leaves tonight."
@@ -1669,15 +1690,17 @@ label choices3_common:
 
     Poppie "..."
 
-    show Poppie looking away sad
+    hide Poppie sad
+    show s sad
 
-    Poppie "Please, don’t show up at the airport tonight."
+    Poppie "Please, don’t show up at the airport."
 
     Poppie "I can’t stand the thought of having to say goodbye to another person I care about."
 
     p "..."
 
-    #fade to black
+    scene black wallpaper
+    with fade
 
     if relationship == 0 or relationship == 1:
         jump Bad_End
@@ -1705,7 +1728,89 @@ label Bad_End:
     return
 
 label Neutral_End:
-    jump Bad_End
+    play music "music/Never Again.mp3"
+
+    "Against her wishes, I went to the airport that night."
+
+    "I can’t let it end like this."
+
+    "What was all this for?"
+
+    "What about those sleepless nights where she consumed my thoughts?"
+
+    "I saw her bubbles for a reason, I met her for a reason!"
+
+    "I had to see her one last time."
+
+    scene airport night
+    with fade
+    "Please be here, please be here."
+
+    "I have to find her."
+
+    scene airport night
+    with dissolve
+
+    "I began running around all over the place, trying to find Poppie."
+
+    scene airport night
+    with dissolve
+
+    "Each and every nook and cranny, I had searched."
+
+    scene airport night
+    with dissolve
+
+    "Nothing, there’s no sign of her."
+
+    "Then, from afar..."
+
+    "A bubble floats by."
+
+    play music "music/Joy.mp3"
+
+    p "Poppie!?"
+
+    show Poppie sad
+    Poppie "..."
+
+    "We make eye contact."
+
+    p "...!"
+
+    show Poppie cry
+    Poppie "..."
+
+    "She waves at me, with tears in her eyes."
+
+    hide Poppie cry
+    with moveoutright
+
+    "With that last look, she vanished."
+
+    "Leaving no trace behind."
+
+    scene black wallpaper
+    with fade
+
+    "And that was it."
+
+    "I never saw Poppie ever again."
+
+    "I still have that bottle of bubbles she gave me all those years ago."
+
+    "When I’m sad, I take it out and blow a few bubbles just to watch them pop and vanish."
+
+    "Just like her."
+
+    "Maybe she was right."
+
+    "Cherish what you have,"
+
+    "Because before you know it,"
+
+    "It could be gone forever."
+    return
 
 label Good_End:
     play music "music/Never Again.mp3"
@@ -1722,22 +1827,22 @@ label Good_End:
 
     "I had to see her one last time."
 
-    scene Airport
+    scene airport night
     "Please be here, please be here."
 
     "I have to find her."
 
-    scene Airport
+    scene airport night
     with fade
 
     "I began running around all over the place, trying to find Poppie."
 
-    scene Airport
+    scene airport night
     with fade
 
     "Each and every nook and cranny, I had searched."
 
-    scene Airport
+    scene airport night
     with fade
 
     "Nothing, there’s no sign of her."
@@ -1756,7 +1861,7 @@ label Good_End:
 
     "I need her to see."
 
-    scene Airport
+    scene airport night
     with fade
 
     show Poppie sad
@@ -1766,7 +1871,7 @@ label Good_End:
 
     Poppie "What... Where are you coming from?"
 
-    scene Airport
+    scene airport night
     with fade
 
     "A short while later, I hear a trail of footsteps approaching."
@@ -1803,7 +1908,7 @@ label Good_End:
 
     p "Until I met you."
 
-    show Poppie smile
+    show Poppie neutral
 
     p "I didn’t save you, Poppie."
 
@@ -1821,7 +1926,8 @@ label Good_End:
 
     Poppie "I hope you’ll remember me."
 
-    #fade to black
+    scene black wallpaper
+    with fade
 
     "And that was it."
 
@@ -1830,26 +1936,30 @@ label Good_End:
     "..."
 
     scene apartment night
+    with dissolve
 
     play music "music/Leaving.mp3"
 
     "With Poppie gone, life returned to normal."
 
     scene downtown day
+    with dissolve
     "Sure, my life went on, but there was barely anything exciting happening."
 
-    #fade to black
+    scene black wallpaper
+    with dissolve
 
     "And over the years, my memories of Poppie started to slowly dissipate."
 
     "..."
 
-    scene restaurant day
+    scene restaurant
+    with dissolve
     p "Two Bubble Teas, please."
 
     "Clerk" "Right away!"
 
-    #fade to black
+    "..."
 
     "Clerk" "Here you go!"
 
@@ -1867,7 +1977,7 @@ label Good_End:
     "Whatever, maybe I’ll just store it in my fridge and save it for the next day."
 
     scene beach sunset
-    with dissolve
+    with fade
 
     "Left at the intersection, three blocks down, right at the corner store, and then I’m home."
 
@@ -1904,11 +2014,11 @@ label Good_End:
     scene beach sunset
     with fade
 
+    show a sad
+
     "I rub my eyes, in disbelief at what I’m seeing."
 
     Poppie "Hm?"
-
-    show a sad
 
     a "..."
 
@@ -1920,7 +2030,7 @@ label Good_End:
 
     Poppie "..."
 
-    show a calm
+    show a neutral
 
     "Upon hearing my voice, her frown turns to a warm, cheerful smile."
 
@@ -1928,7 +2038,8 @@ label Good_End:
 
     p "Welcome back."
 
-    #fade to black
+    scene black wallpaper
+    with fade
 
     play music "music/Ice Skating.mp3"
 
