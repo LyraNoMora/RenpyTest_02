@@ -25,18 +25,11 @@ transform zoom_effect(delay = 0):
         easein_back 0.3 zoom 1.0
 
         
-transform cinematic_thingy(delay = 0):
+transform cinematic_thingy(delay = 0, do_rotate = True, do_opacity = True):
     xanchor 0.5 yanchor 0.5 transform_anchor True
-    zoom 2.5 alpha 0 blur 50 rotate -45 xoffset 190 yoffset 60
+    zoom 4 alpha 0 blur 50 rotate (-45 if do_rotate else 0) xoffset 700 yoffset 300
     pause delay * 0.05
-    easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
-        
-# Same as above but no rotation
-transform cinematic_thingy_2(delay = 0):
-    xanchor 0.5 yanchor 0.5 transform_anchor True
-    zoom 2.5 alpha 0 blur 50 xoffset 190 yoffset 60
-    pause delay * 0.05
-    easein 3 alpha 1 zoom 1 blur 0 xoffset 0 yoffset 0
+    easein (3 - (delay * 0.05)) alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
 
 ################################################################################
 ## Styles
@@ -412,20 +405,20 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background at cinematic_thingy(0):
+    add gui.main_menu_background at cinematic_thingy(0, True, True):
         xpos 0.5 ypos 0.5
 
     $ override_best_ending = False
 
     # Silhouette
     if persistent.got_best_ending or override_best_ending:
-        add "gui/poppie_silhouette_2.png" at cinematic_thingy(10):
+        add "gui/poppie_silhouette_2.png" at cinematic_thingy(10, True, False):
             xpos 0.5 ypos 0.5 xoffset 40
-        add "gui/lens_flare.png" at cinematic_thingy_2(0):
-            xpos 0.5 ypos 0.5
     else:
-        add "gui/poppie_silhouette_1.png" at cinematic_thingy(10):
+        add "gui/poppie_silhouette_1.png" at cinematic_thingy(10, True, False):
             xpos 0.5 ypos 0.5 xoffset 40
+    add "gui/lens_flare.png" at cinematic_thingy(0, False, False):
+        xpos 0.5 ypos 0.5
 
     # Logo
     add "gui/logo.png":
