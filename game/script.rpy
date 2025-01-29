@@ -1752,17 +1752,12 @@ label Neutral_End:
     "I have to find her."
 
     scene airport night
-    with dissolve
+    with fade
 
     "I began running around all over the place, trying to find Poppie."
 
     scene airport night
-    with dissolve
-
-    "Each and every nook and cranny, I had searched."
-
-    scene airport night
-    with dissolve
+    with fade
 
     "Nothing, there’s no sign of her."
 
@@ -1844,11 +1839,6 @@ label Good_End:
     with fade
 
     "I began running around all over the place, trying to find Poppie."
-
-    scene airport night
-    with fade
-
-    "Each and every nook and cranny, I had searched."
 
     scene airport night
     with fade
