@@ -2050,7 +2050,7 @@ label Good_End:
 
     Poppie "Hm?"
 
-    scene sunset
+    scene beach sunset
     with fade
 
     show a sad
