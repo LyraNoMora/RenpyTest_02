@@ -21,7 +21,7 @@ screen credits:
             style_prefix "credits"
 
             label "Programmer"
-            text "Leeann G (Moonlit_heart)"
+            text "Lyra Makes Games"
             text "Jalen (Jaygantic)"
 
             label "Writer"

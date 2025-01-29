@@ -126,6 +126,7 @@ label start:
     "I follow the trail and see the source of the floating chaos:"
 
     show s neutral
+    with dissolve
 
     g "..."
 
@@ -156,7 +157,7 @@ label start:
 
     show Poppie smile
 
-    g "..."
+    # g "..."
 
     g "My name is Poppie, nice to meet you bubble police!"
 menu:
@@ -175,7 +176,7 @@ label choices1_common:
 
     Poppie "So my bubbles brought you here to me, hm?"
 
-    p "...Sort of? I guess, yeah they did."
+    p "Sort of? I guess, yeah they did."
 
     Poppie "Do you like them?"
 
@@ -183,7 +184,7 @@ label choices1_common:
 
     show Poppie sad
 
-    Poppie "So you don’t like them..."
+    Poppie "So you don’t like them."
 
     p "No-! I mean yes-! I mean-!"
 
@@ -258,7 +259,7 @@ label choices1_common:
 
     show Poppie neutral
 
-    Poppie "..."
+    # Poppie "..."
 
     Poppie "You know what I think?"
 
@@ -337,6 +338,7 @@ label choices1_common:
     "I show up back at the beach at 11am."
 
     show Poppie serious
+    with dissolve
 
     Poppie "Finally, you’re here! I’ve been waiting here for like, forever!"
 
@@ -515,7 +517,7 @@ label choices5_common:
     Poppie "Well, I'll see you around!"
 
     hide Poppie cheery
-    with moveoutright
+    with dissolve
 
     "Poppie skipped away, bouncing further and further down the street."
 
@@ -547,7 +549,7 @@ label choices5_common:
     if relationship < 2:
         p "Pick up!"
 
-    p "..."
+    # p "..."
 
     play sound "sfx/Phone Clicking.mp3"
 
@@ -584,7 +586,7 @@ label choices5_common:
 
     "My routine was thrown off, that’s for sure."
 
-    "..."
+    "But,"
 
     "It was so much more fun."
 
@@ -785,7 +787,7 @@ label choices6_common:
 
     "I fell over."
 
-    p "Ouch..."
+    p "Ouch."
 
     show Poppie smile
 
@@ -1045,7 +1047,7 @@ label choices7_common:
 
     p "..."
 
-    Poppie "Um..."
+    Poppie "Um."
 
     p "Are you hungry?"
 
@@ -1131,9 +1133,9 @@ label choices7_common:
 
     p "Because it’s uncooked."
 
-    Poppie "..."
+    # Poppie "..."
 
-    p "And there’s no flavor packet."
+    p "And- and there’s no flavor packet."
 
     show Poppie sad
 
@@ -1192,7 +1194,7 @@ label choices7_common:
     scene apartment night
     with fade
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "Sooo full. That was a good meal, if I do say so myself."
 
@@ -1405,6 +1407,9 @@ label choices8_common:
 
     play music "music/Poppie_s Theme.mp3"
 
+    show Poppie sad
+    with dissolve
+
     Poppie "Hey, whatcha doin? You’ve been standing there for quite a while."
 
     p "Poppie!"
@@ -1491,9 +1496,9 @@ label choices8_common:
 
     p "Just take one and pop it in your mouth."
 
-    Poppie "Alright."
-
     show Poppie serious
+
+    Poppie "Hmm."
 
     "Poppie took one and observed it for a bit."
 
@@ -1535,7 +1540,7 @@ label choices3_common:
 
     show Poppie surprised
 
-    Poppie "...!"
+    # Poppie "...!"
 
     "And her gum landed on my face."
 
@@ -1574,7 +1579,7 @@ label choices3_common:
 
     Poppie "I noticed this when you talked to the boba shop clerk, and when that guy at the ice skating rink ran into you."
 
-    p "..."
+    # p "..."
 
     p "I guess I’m just worried about how people will judge me."
 
@@ -1597,14 +1602,14 @@ label choices3_common:
 
     s "Do you know how much courage it took for me to ask you if you wanted to hang out again when we first met?"
 
-    p "..."
+    # p "..."
 
     hide s
     show Poppie calm
 
     Poppie "I was so afraid at the time that you’d say \“No.\”"
 
-    p "..."
+    # p "..."
 
     Poppie "Even now, I’m worried about what you think of me."
 
@@ -1812,7 +1817,7 @@ label Neutral_End:
     "She waves at me, with tears in her eyes."
 
     hide Poppie cry
-    with moveoutright
+    with dissolve
 
     "With that last look, she vanished."
 
@@ -1904,6 +1909,7 @@ label Good_End:
     p "...!"
 
     show Poppie calm
+    with dissolve
 
     Poppie "You showed up, even after I told you not to."
 
@@ -2047,7 +2053,8 @@ label Good_End:
     scene sunset
     with fade
 
-    a "..."
+    show a sad
+    with dissolve
 
     "There she is, staring right back at me."
 
