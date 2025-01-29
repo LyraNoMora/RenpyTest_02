@@ -168,6 +168,8 @@ label choices1_common:
 
     show Poppie neutral
 
+    Poppie "Heehee!"
+
     Poppie "So my bubbles brought you here to me, hm?"
 
     p "...Sort of? I guess, yeah they did."
@@ -202,9 +204,9 @@ label choices1_common:
 
     "She handed me her bubble bottles."
 
-    show Poppie serious
-
     p "Why are you giving me this?"
+
+    show Poppie serious
 
     Poppie "I’m getting tired of blowing bubbles, it's your turn!"
 
@@ -259,21 +261,21 @@ label choices1_common:
 
     Poppie "I think..."
 
-    show Poppie smile
+    show s neutral
 
-    Poppie "...Bubbles are a lot like people."
+    s "...Bubbles are a lot like people."
 
-    Poppie "Some are small, some are big and round, others wobbly, or sturdy."
+    s "Some are small, some are big and round, others wobbly, or sturdy."
 
-    Poppie "All these bubbles float up, dance around in the air, trying not to bump into each other."
+    s "All these bubbles float up, dance around in the air, trying not to bump into each other."
 
-    Poppie "Sometimes they do bump into one another, and stick together."
+    s "Sometimes they do bump into one another, and stick together."
 
-    Poppie "...And like a bubble, it’ll continue to fly high, ever drifting, oblivious to what comes next."
+    s "...And like a bubble, it’ll continue to fly high, ever drifting, oblivious to what comes next."
 
-    Poppie "Then, one day, it pops."
+    s "Then, one day, it pops."
 
-    Poppie "With no rhyme or reason. It just pops, and it’s gone in an instant."
+    s "With no rhyme or reason. It just pops, and it’s gone in an instant."
 
     p "..."
 
@@ -361,7 +363,9 @@ label choices1_common:
     Poppie "No! It’s… it’s my second time!"
 
     scene downtown day
-    with dissolve
+    with fade
+
+    #dissolve to fade
 
     "The sun is beating down today."
 
