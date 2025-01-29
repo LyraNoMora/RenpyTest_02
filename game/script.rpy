@@ -93,6 +93,9 @@ label start:
 
     # These display lines of dialogue.
 
+    scene black
+    $ renpy.pause (1.0, hard=True)
+
     $ relationship = 0
 
     play music "music/Poppie_s Theme.mp3"
@@ -261,6 +264,7 @@ label choices1_common:
 
     Poppie "I think..."
 
+    hide Poppie neutral
     show s neutral
 
     s "...Bubbles are a lot like people."
@@ -285,6 +289,7 @@ label choices1_common:
 
     "There’s definitely more to this girl than spontaneous bubble blowing."
 
+    hide s neutral
     show Poppie neutral
 
     Poppie "So, are you doing anything tomorrow?"
@@ -319,6 +324,10 @@ label choices1_common:
     "I look down at the bubble bottle then back at her and crack a faint smile."
 
     p "What an odd girl."
+
+    scene black
+    with fade
+    $ renpy.pause (0.5, hard=True)
 
     scene beach day
     with fade
@@ -459,7 +468,7 @@ label choices5_common:
     p "...!"
 
     scene restaurant
-    with fade
+    with dissolve
 
     play music "music/Morning.mp3"
 
@@ -472,7 +481,7 @@ label choices5_common:
     Poppie "...Why don’t I order for us?"
 
     scene restaurant
-    with dissolve
+    with fade
 
     show Poppie neutral
 
@@ -485,7 +494,7 @@ label choices5_common:
     p "Heh, I get it."
 
     scene beach sunset
-    with dissolve
+    with fade
 
     play music "music/Afternoon.mp3"
 
@@ -601,6 +610,9 @@ label choices4_a:
 
     stop music
 
+    scene apartment night
+    with fade
+
     p "..."
     
     Poppie "Heyyo!"
@@ -614,9 +626,6 @@ label choices4_a:
     Poppie "Pretty good!"
     
     Poppie "Oh, I saw your call earlier. Sorry I couldn’t pick up. I was in such a rush that I accidentally left my phone at home today."
-    
-    scene apartment night
-    with fade
 
     p "No worries."
 
@@ -627,6 +636,9 @@ label choices4_a:
 
 label choices4_b:
     stop music
+
+    scene apartment night
+    with fade
 
     p "..."
 
@@ -653,9 +665,6 @@ label choices4_b:
     play music "music/Joy.mp3"
 
     Poppie "Well, I gave you my number, but I never got yours!"
-
-    scene apartment night
-    with fade
 
     p "O-oh, right."
 
@@ -688,6 +697,12 @@ label choices4_common:
 
     Poppie "See you tomorrow then."
 
+    stop music
+
+    scene black
+    with fade
+    $ renpy.pause (0.5, hard=True)
+
     show beach day
     with fade
 
@@ -706,6 +721,7 @@ label choices4_common:
     "From the distance, I hear Poppie’s faint voice."
 
     show Poppie neutral
+    with moveinright
 
     Poppie "Sorry, were you waiting for a while?"
 menu:
@@ -729,9 +745,13 @@ label choices6_common:
     Poppie "Well anyways, let’s get going! I’ll lead the way!"
 
     scene ice_rink interior
-    with dissolve
+    with fade
+
+    #dissolve to fade
 
     play music "music/Ice Skating.mp3"
+
+    show Poppie neutral
 
     Poppie "How are those shoes?"
 
@@ -777,21 +797,21 @@ label choices6_common:
 
     "Poppie reached out her hand for me."
 
-    hide Poppie surprised
-    with moveoutbottom
-
     show Poppie surprised
 
     "WA-WAAAH!"
+
+    hide Poppie surprised
+    with moveoutbottom
 
     play sound "sfx/Crash.ogg"
 
     "*CRASH*"
 
-    Poppie "WA-WAAAH!"
-
     show Poppie sad
     with moveinbottom
+
+    Poppie "Owie..."
 
     "Who’s the silly one now?"
 
@@ -832,7 +852,7 @@ label choices6_common:
     "I couldn’t help but laugh with her."
 
     scene ice_rink interior
-    with dissolve
+    with fade
 
     "The two of us get up and continue skating together."
 
@@ -845,6 +865,8 @@ label choices6_common:
     p "Heh, yeah I guess."
 
     stop music
+
+    show Poppie surprised
 
     Poppie "Woah- HEY! WATCH OUT-"
 
@@ -866,7 +888,7 @@ label choices6_common:
     play music "music/Clouded.mp3"
 
     scene ice_rink red tint
-    with fade
+    with dissolve
 
 menu:
     "Watch where you are going!":
@@ -887,7 +909,7 @@ label choices7_a:
     "The right words can’t seem to get out of my mouth."
 
     scene ice_rink interior
-    with fade
+    with dissolve
 
     play music "music/Ice Skating.mp3"
 
@@ -904,11 +926,11 @@ label choices7_a:
 
     play music "music/Poppie_s Theme.mp3"
 
+    show Poppie sad
+
     Poppie "Sorry that you got hurt. This never would have happened if I hadn’t asked you to come here."
 
     p "Don’t worry, I’m not all that hurt. It’s not your fault, anyways, it was an accident."
-
-    Poppie "..."
 
     show Poppie neutral
 
@@ -942,7 +964,7 @@ label choices7_b:
     "The right words can’t seem to get out of my mouth."
 
     scene ice_rink interior
-    with fade
+    with dissolve
 
     play music "music/Ice Skating.mp3"
 
@@ -1703,7 +1725,7 @@ label choices3_common:
 
     p "..."
 
-    scene black wallpaper
+    scene black
     with fade
 
     if relationship == 0 or relationship == 1:
@@ -1794,7 +1816,7 @@ label Neutral_End:
 
     "Leaving no trace behind."
 
-    scene black wallpaper
+    scene black
     with fade
 
     "And that was it."
@@ -1928,7 +1950,7 @@ label Good_End:
 
     Poppie "I hope you’ll remember me."
 
-    scene black wallpaper
+    scene black
     with fade
 
     "And that was it."
@@ -1948,7 +1970,7 @@ label Good_End:
     with dissolve
     "Sure, my life went on, but there was barely anything exciting happening."
 
-    scene black wallpaper
+    scene black
     with dissolve
 
     "And over the years, my memories of Poppie started to slowly dissipate."
@@ -2041,7 +2063,7 @@ label Good_End:
 
     p "Welcome back."
 
-    scene black wallpaper
+    scene black
     with fade
 
     play music "music/Ice Skating.mp3"
