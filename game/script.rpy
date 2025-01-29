@@ -1752,6 +1752,8 @@ label Bad_End:
 
     "I hope she’s happy."
     
+    $ persistent.got_best_ending = False
+
     call screen credits
 
     return
@@ -1836,6 +1838,8 @@ label Neutral_End:
     "Because before you know it,"
 
     "It could be gone forever."
+    
+    $ persistent.got_best_ending = False
     
     show screen credits
 

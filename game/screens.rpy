@@ -25,18 +25,11 @@ transform zoom_effect(delay = 0):
         easein_back 0.3 zoom 1.0
 
         
-transform cinematic_thingy(delay = 0):
+transform cinematic_thingy(delay = 0, do_rotate = True, do_opacity = True):
     xanchor 0.5 yanchor 0.5 transform_anchor True
-    zoom 2.5 alpha 0 blur 50 rotate -45 xoffset 190 yoffset 60
+    zoom 4 alpha 0 blur 50 rotate (-45 if do_rotate else 0) xoffset 700 yoffset 300
     pause delay * 0.05
-    easein 3 alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
-        
-# Same as above but no rotation
-transform cinematic_thingy_2(delay = 0):
-    xanchor 0.5 yanchor 0.5 transform_anchor True
-    zoom 2.5 alpha 0 blur 50 xoffset 190 yoffset 60
-    pause delay * 0.05
-    easein 3 alpha 1 zoom 1 blur 0 xoffset 0 yoffset 0
+    easein (3 - (delay * 0.05)) alpha 1 zoom 1 blur 0 rotate 0 xoffset 0 yoffset 0
 
 ################################################################################
 ## Styles
@@ -412,20 +405,20 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background at cinematic_thingy(0):
+    add gui.main_menu_background at cinematic_thingy(0, True, True):
         xpos 0.5 ypos 0.5
 
     $ override_best_ending = False
 
     # Silhouette
     if persistent.got_best_ending or override_best_ending:
-        add "gui/poppie_silhouette_2.png" at cinematic_thingy(10):
+        add "gui/poppie_silhouette_2.png" at cinematic_thingy(10, True, False):
             xpos 0.5 ypos 0.5 xoffset 40
-        add "gui/lens_flare.png" at cinematic_thingy_2(0):
-            xpos 0.5 ypos 0.5
     else:
-        add "gui/poppie_silhouette_1.png" at cinematic_thingy(10):
+        add "gui/poppie_silhouette_1.png" at cinematic_thingy(10, True, False):
             xpos 0.5 ypos 0.5 xoffset 40
+    add "gui/lens_flare.png" at cinematic_thingy(0, False, False):
+        xpos 0.5 ypos 0.5
 
     # Logo
     add "gui/logo.png":
@@ -1571,10 +1564,6 @@ define bubble.expand_area = {
 ## Mobile Variants
 ################################################################################
 
-style pref_vbox:
-    variant "medium"
-    xsize 675
-
 ## Since a mouse may not be present, we replace the quick menu with a version
 ## that uses fewer and bigger buttons that are easier to touch.
 screen quick_menu():
@@ -1596,82 +1585,82 @@ screen quick_menu():
             textbutton _("Menu") action ShowMenu()
 
 
-style window:
-    variant "small"
-    background "gui/phone/textbox.png"
+# style window:
+#     variant "small"
+#     background "gui/phone/textbox.png"
 
-style radio_button:
-    variant "small"
-    foreground "gui/phone/button/radio_[prefix_]foreground.png"
+# style radio_button:
+#     variant "small"
+#     foreground "gui/phone/button/radio_[prefix_]foreground.png"
 
-style check_button:
-    variant "small"
-    foreground "gui/phone/button/check_[prefix_]foreground.png"
+# style check_button:
+#     variant "small"
+#     foreground "gui/phone/button/check_[prefix_]foreground.png"
 
-style nvl_window:
-    variant "small"
-    background "gui/phone/nvl.png"
+# style nvl_window:
+#     variant "small"
+#     background "gui/phone/nvl.png"
 
-style main_menu_frame:
-    variant "small"
-    background "gui/phone/overlay/main_menu.png"
+# style main_menu_frame:
+#     variant "small"
+#     background "gui/phone/overlay/main_menu.png"
 
-style game_menu_outer_frame:
-    variant "small"
-    background "gui/phone/overlay/game_menu.png"
+# style game_menu_outer_frame:
+#     variant "small"
+#     background "gui/phone/overlay/game_menu.png"
 
-style game_menu_navigation_frame:
-    variant "small"
-    xsize 510
+# style game_menu_navigation_frame:
+#     variant "small"
+#     xsize 510
 
-style game_menu_content_frame:
-    variant "small"
-    top_margin 0
+# style game_menu_content_frame:
+#     variant "small"
+#     top_margin 0
 
-style pref_vbox:
-    variant "small"
-    xsize 600
+# style pref_vbox:
+#     variant "small"
+#     xsize 600
 
-style bar:
-    variant "small"
-    ysize gui.bar_size
-    left_bar Frame("gui/phone/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/phone/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
+# style bar:
+#     variant "small"
+#     ysize gui.bar_size
+#     left_bar Frame("gui/phone/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
+#     right_bar Frame("gui/phone/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
 
-style vbar:
-    variant "small"
-    xsize gui.bar_size
-    top_bar Frame("gui/phone/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
-    bottom_bar Frame("gui/phone/bar/bottom.png", gui.vbar_borders, tile=gui.bar_tile)
+# style vbar:
+#     variant "small"
+#     xsize gui.bar_size
+#     top_bar Frame("gui/phone/bar/top.png", gui.vbar_borders, tile=gui.bar_tile)
+#     bottom_bar Frame("gui/phone/bar/bottom.png", gui.vbar_borders, tile=gui.bar_tile)
 
-style scrollbar:
-    variant "small"
-    ysize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+# style scrollbar:
+#     variant "small"
+#     ysize gui.scrollbar_size
+#     base_bar Frame("gui/phone/scrollbar/horizontal_[prefix_]bar.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
+#     thumb Frame("gui/phone/scrollbar/horizontal_[prefix_]thumb.png", gui.scrollbar_borders, tile=gui.scrollbar_tile)
 
-style vscrollbar:
-    variant "small"
-    xsize gui.scrollbar_size
-    base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+# style vscrollbar:
+#     variant "small"
+#     xsize gui.scrollbar_size
+#     base_bar Frame("gui/phone/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+#     thumb Frame("gui/phone/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
 
-style slider:
-    variant "small"
-    ysize gui.slider_size
-    base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
+# style slider:
+#     variant "small"
+#     ysize gui.slider_size
+#     base_bar Frame("gui/phone/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/horizontal_[prefix_]thumb.png"
 
-style vslider:
-    variant "small"
-    xsize gui.slider_size
-    base_bar Frame("gui/phone/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb "gui/phone/slider/vertical_[prefix_]thumb.png"
+# style vslider:
+#     variant "small"
+#     xsize gui.slider_size
+#     base_bar Frame("gui/phone/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
+#     thumb "gui/phone/slider/vertical_[prefix_]thumb.png"
 
-style slider_vbox:
-    variant "small"
-    xsize None
+# style slider_vbox:
+#     variant "small"
+#     xsize None
 
-style slider_slider:
-    variant "small"
-    xsize 900
+# style slider_slider:
+#     variant "small"
+#     xsize 900
