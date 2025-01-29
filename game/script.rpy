@@ -934,8 +934,6 @@ label choices7_a:
 
     show Poppie neutral
 
-    Poppie "..."
-
     Poppie "Way to keep your cool back there."
 
     p "What do you mean?"
@@ -989,8 +987,6 @@ label choices7_b:
 
     p "Don’t worry about it, it’s not your fault at all."
 
-    Poppie "..."
-
     show Poppie sad
 
     Poppie "You wanted to yell at them, didn't you?"
@@ -1006,8 +1002,6 @@ label choices7_b:
     show Poppie smile
 
     Poppie "A little."
-
-    p "..."
 
     Poppie "I would probably wanna give that guy a piece of my mind too if I was you!"
 
@@ -1040,10 +1034,6 @@ label choices7_common:
     p "Aye aye, captain."
 
     stop music
-
-    show Poppie 
-
-    Poppie "..."
 
     show Poppie surprised
 
@@ -1091,7 +1081,7 @@ label choices7_common:
     p "Hey!"
 
     scene apartment night
-    with dissolve
+    with fade
 
     "I bring out a pot to boil water."
 
@@ -1143,7 +1133,7 @@ label choices7_common:
 
     Poppie "..."
 
-    p "...And there’s no flavor packet."
+    p "And there’s no flavor packet."
 
     show Poppie sad
 
@@ -1155,8 +1145,6 @@ label choices7_common:
 
     Poppie "That’s fine, I’ll teach you."
 
-    p "..."
-
     scene apartment night
     with dissolve
 
@@ -1165,10 +1153,6 @@ label choices7_common:
     Poppie "Well, first you grab a pot and pour some water in."
 
     Poppie "Next, you set the stove to high and let the water boil."
-
-    p "..."
-
-    Poppie "..."
 
     p "So, what do we do next?"
 
@@ -1188,10 +1172,10 @@ label choices7_common:
 
     Poppie "That’s right, it’s our old friend: bubbles!"
 
-    scene apartment night
-    with dissolve
+    # scene apartment night
+    # with fade
 
-    show Poppie
+    # show Poppie
 
     Poppie "And with that, you’re ready to serve!"
 
@@ -1236,6 +1220,9 @@ label choices7_common:
 
     Poppie "After all, every bubble has to pop."
 
+    scene apartment red tint
+    with dissolve
+
     play music "music/Clouded.mp3"
 
 menu:
@@ -1250,6 +1237,9 @@ menu:
         jump choices8_common
 
 label choices8_common:
+    scene apartment night
+    with dissolve
+
     p "..."
 
     play music "music/Poppie_s Theme.mp3"
@@ -1268,6 +1258,10 @@ label choices8_common:
     "As it closed behind her, I saw her bubble bottle sitting on a shelf nearby."
 
     p "...Maybe next time."
+
+    scene black
+    with fade
+    $ renpy.pause (0.5, hard=True)
 
     scene apartment night
     with fade
@@ -1344,8 +1338,14 @@ label choices8_common:
 
     p "Poppie..."
 
+    scene black
+    with fade
+    $ renpy.pause (0.5, hard=True)
+
     scene beach day
     with dissolve
+
+    play music "music/Morning.mp3"
 
     "I woke up the next day, and immediately went to the beach."
 
@@ -1429,11 +1429,11 @@ label choices8_common:
 
     p "Oh, what’s that you got there?"
 
-    show Poppie
+    show Poppie neutral
 
     Poppie "This is a bubble gun!"
 
-    p "A bubble... gun?"
+    p "A bubble gun?"
 
     show Poppie cheery
 
@@ -1456,7 +1456,7 @@ label choices8_common:
 
     show Poppie sad
 
-    Poppie "Aw..."
+    Poppie "Aw."
 
     p "What’s wrong? Why’d you stop the bubbles?"
 
@@ -1485,6 +1485,8 @@ label choices8_common:
 
     p "Bubble gum."
 
+    show Poppie neutral
+
     Poppie "It says \“Hubba Bubba\” on it."
 
     p "Just take one and pop it in your mouth."
@@ -1497,9 +1499,9 @@ label choices8_common:
 
     p "What’re you waiting for? It’s not gonna poison you or anything."
 
-    "After hearing me, Poppie immediately shoved it in her mouth."
-
     show Poppie neutral
+
+    "After hearing me, Poppie immediately shoved it in her mouth."
 
     Poppie "So how are we going to make bubbles with Hubba Bubba?"
 
@@ -1752,8 +1754,6 @@ label Bad_End:
 
     "I hope she’s happy."
     
-    $ persistent.got_best_ending = False
-
     call screen credits
 
     return
@@ -1839,8 +1839,6 @@ label Neutral_End:
 
     "It could be gone forever."
     
-    $ persistent.got_best_ending = False
-    
     show screen credits
 
     return
@@ -1893,11 +1891,10 @@ label Good_End:
     with fade
 
     show Poppie sad
-    Poppie "..."
 
     Poppie "Huh? Bubbles?"
 
-    Poppie "What... Where are you coming from?"
+    Poppie "Where are you coming from?"
 
     scene airport night
     with fade
@@ -1920,11 +1917,7 @@ label Good_End:
 
     Poppie "I’m just so happy to see you, even if it’s just one last time."
 
-    p "..."
-
     p "Please, stay."
-
-    Poppie "..."
 
     Poppie "I can't."
 
@@ -1936,8 +1929,6 @@ label Good_End:
 
     p "Until I met you."
 
-    show Poppie neutral
-
     p "I didn’t save you, Poppie."
 
     Poppie "..."
@@ -1947,6 +1938,8 @@ label Good_End:
     Poppie "..."
 
     p "..."
+
+    show Poppie smile
 
     Poppie "I promise I won’t ever forget you, or all of those fond memories we made together."
 
@@ -1994,7 +1987,7 @@ label Good_End:
     p "Thank you."
 
     scene downtown day
-    with dissolve
+    with fade
 
     "I bought two bubble teas."
 
@@ -2031,7 +2024,7 @@ label Good_End:
 
     play music "music/Reunion.mp3"
 
-    show a
+    show s neutral
 
     g "..."
 
@@ -2041,11 +2034,18 @@ label Good_End:
 
     scene beach sunset
 
+    hide s neutral
     show a sad
+
+    scene black
+    with fade
 
     "I rub my eyes, in disbelief at what I’m seeing."
 
     Poppie "Hm?"
+
+    scene sunset
+    with fade
 
     a "..."
 
