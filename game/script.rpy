@@ -72,10 +72,15 @@ transform drift_up:
     linear 7.0 yanchor 1.0 ypos 0.2
 
 label create_bubble(bubble_name):
-    $ random_bubble_zoom = 0.2 + (0.8 * renpy.random.random())
+    $ random_bubble_zoom = 0.1 + (0.4 * renpy.random.random())
     $ bubble_image = Image("images/bubble.png")
     $ zoom_transform = Transform(zoom=random_bubble_zoom)
-    $ renpy.show("bubble", at_list=[bobble, glide_across, drift_up, zoom_transform], tag=bubble_name, what=bubble_image)
+    $ renpy.show(
+        "bubble", 
+        at_list=[bobble, glide_across, drift_up, zoom_transform], 
+        tag=bubble_name, 
+        what=bubble_image
+    )
         
     return
 
