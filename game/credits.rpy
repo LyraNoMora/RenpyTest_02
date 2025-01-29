@@ -2,7 +2,7 @@ transform scroll_up:
     yanchor 0.0 ypos 1.0
     linear 30 yanchor 1.0 ypos 0.0
 
-screen credits:
+screen credits():
 
     zorder 150
 

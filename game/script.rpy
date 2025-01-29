@@ -1847,7 +1847,7 @@ label Neutral_End:
     show screen credits
 
     return
-
+    
 label Good_End:
     play music "music/Never Again.mp3"
 
@@ -2030,7 +2030,7 @@ label Good_End:
 
     play music "music/Reunion.mp3"
 
-    show s neutral
+    show a neutral
 
     g "..."
 
@@ -2040,7 +2040,6 @@ label Good_End:
 
     scene beach sunset
 
-    hide s neutral
     show a sad
 
     scene black
