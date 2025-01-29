@@ -481,3 +481,6 @@ define gui.language = "unicode"
 
 #         gui.nvl_button_width = 1240
 #         gui.nvl_button_xpos = 20
+
+style default:
+    activate_sound "sfx/Pop.mp3"
