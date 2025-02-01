@@ -990,6 +990,8 @@ label choices7_b:
 
     play music "music/Poppie_s Theme.mp3"
 
+    show Poppie sad
+    
     Poppie "Sorry that you fell over, it’s my fault that all this happened."
 
     p "Don’t worry about it, it’s not your fault at all."
