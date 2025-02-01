@@ -568,7 +568,7 @@ label choices5_common:
 
     Poppie "Unfortunately, I’m not available at this moment to pick-up my phone, please leave a message after the beep!"
 
-    play sound "sfx/Phone Ring.mp3"
+    play sound "sfx/Phone Clicking.mp3"
 
     "*BEEP*"
 
@@ -828,7 +828,7 @@ label choices6_common:
 
     Poppie "Huh?"
 
-    "In an instant, Poppie’s smile dissipates, replaced with a curious, childlike expression."
+    "In an instant, Poppie’s sadness dissipates, replaced with a curious, childlike expression."
 
     show Poppie smile
 
@@ -1255,10 +1255,10 @@ label choices8_common:
 
     Poppie "Well, I’ll see you around!"
 
-    "With that, she headed out."
+    hide Poppie
+    with dissolve
 
-    show Poppie
-    with moveoutright
+    "With that, she headed out."
 
     "I watched her leave out the front door."
 
@@ -1269,9 +1269,6 @@ label choices8_common:
     scene black
     with fade
     $ renpy.pause (0.5, hard=True)
-
-    scene apartment night
-    with fade
 
     stop music
 
@@ -1351,8 +1348,6 @@ label choices8_common:
 
     scene beach day
     with dissolve
-
-    play music "music/Morning.mp3"
 
     "I woke up the next day, and immediately went to the beach."
 
@@ -1849,7 +1844,7 @@ label Neutral_End:
 
     "It could be gone forever."
     
-    show screen credits
+    call screen credits
 
     return
     
@@ -2035,30 +2030,14 @@ label Good_End:
 
     play music "music/Reunion.mp3"
 
-    show a neutral
+    show a sad
+    with dissolve
 
     g "..."
 
     p "Are- Are you-?" with hpunch
 
     "I can’t believe what I’m looking at."
-
-    scene beach sunset
-
-    show a sad
-
-    scene black
-    with fade
-
-    "I rub my eyes, in disbelief at what I’m seeing."
-
-    Poppie "Hm?"
-
-    scene beach sunset
-    with fade
-
-    show a sad
-    with dissolve
 
     "There she is, staring right back at me."
 
@@ -2081,11 +2060,9 @@ label Good_End:
     scene black
     with fade
 
-    play music "music/Ice Skating.mp3"
-
     $ persistent.got_best_ending = True
 
-    show screen credits
+    call screen credits
 
     return
 
